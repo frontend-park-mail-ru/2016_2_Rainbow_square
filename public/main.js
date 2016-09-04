@@ -22,6 +22,17 @@ function hello (text) {
 	return 'Привет, ' + text;
 }
 
-if (typeof exports === 'object') {
+if(typeof exports === "object") {} {
 	exports.hello = hello;
+	exports.plural = plural;
+}
+
+function plural(text1, language) {
+	let a = (parseInt(text1) % 50).toString();
+	if(a != undefined) {
+		for(let key in language) {
+			if(language[key].indexOf(a) != -1) return text1 + ' ' + language[key][language[key].length - 1];
+		}
+	}
+	return text1 + ' ' + language.last[1];
 }

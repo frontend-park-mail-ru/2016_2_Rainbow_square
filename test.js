@@ -4,9 +4,27 @@ let plural = require('./public/main').plural;
 
 assert.equal(hello('Test'), 'Привет, Test');
 
-assert.equal(plural(0), 'Здравствуй, дух');
-assert.equal(plural(1), 'Рады приветствовать на нашем курсе!');
-assert.equal(plural(2), 'Кликай дальше!! Еще осталось 13 раз(а)');
-assert.equal(plural(13), 'Кликай дальше!! Еще осталось 2 раз(а)');
-assert.equal(plural(15), '01001000 01101001 00101100 00100000 01100010 01110010 01101111');
-assert.equal(plural(100), '01001000 01101001 00101100 00100000 01100010 01110010 01101111');
+let language_en = {}
+language_en.first = ['1', 'click'];
+language_en.last = ['all', 'clicks'];
+
+let language_rus = {}
+language_rus.first = ['1','21', '31', '41', 'клик'];
+language_rus.second = ['2', '3', '4', '22', '23', '24', '32', '33', '34', '42', '43', '44', 'клика']
+language_rus.last = ['all', 'кликов'];
+
+assert.equal(hello('Test'), 'Привет, Test');
+
+assert.equal(plural(0, language_en), '0 clicks');
+assert.equal(plural(1, language_en), '1 click');
+assert.equal(plural(2, language_en), '2 clicks');
+assert.equal(plural(13, language_en), '13 clicks');
+assert.equal(plural(15, language_en), '15 clicks');
+assert.equal(plural(100, language_en), '100 clicks');
+
+assert.equal(plural(0, language_rus), '0 кликов');
+assert.equal(plural(1, language_rus), '1 клик');
+assert.equal(plural(2, language_rus), '2 клика');
+assert.equal(plural(13, language_rus), '13 кликов');
+assert.equal(plural(15, language_rus), '15 кликов');
+assert.equal(plural(100, language_rus), '100 кликов');
