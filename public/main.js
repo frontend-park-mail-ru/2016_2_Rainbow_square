@@ -12,7 +12,7 @@ function onSubmit (form) {
 
 	if (result === '100') {
 		form.hidden = true;
-		window.helloWorld.innerHTML = hello(data.user); 
+		window.helloWorld.innerHTML = hello(data.user);
 	}
 
 	console.log(data, result);
@@ -22,17 +22,20 @@ function hello (text) {
 	return 'Привет, ' + text;
 }
 
-if(typeof exports === "object") {} {
-	exports.hello = hello;
-	exports.plural = plural;
+if (typeof exports === "object") {
+    exports.hello = hello;
+    exports.plural = plural;
 }
 
-function plural(text1, language) {
-	let a = (parseInt(text1) % 50).toString();
-	if(a != undefined) {
-		for(let key in language) {
-			if(language[key].indexOf(a) != -1) return text1 + ' ' + language[key][language[key].length - 1];
-		}
-	}
-	return text1 + ' ' + language.last[1];
+function plural(number, language) {
+    const MAGIC_CONST = 10;
+    let a = (parseInt(number));
+    if (a) {
+        let b = (a % MAGIC_CONST).toString();
+        for (let key in language) {
+            if ((language[key].indexOf(b) != -1) && (language[key][0](a)))
+                return number + ' ' + language[key][language[key].length - 1];
+        }
+    }
+    return number + ' ' + language.last[2];
 }
