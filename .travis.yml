@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+- '6'
+branches:
+  only:
+  - master
+  - /^lesson-.*$/
+deploy:
+  provider: heroku
+  api_key:
+    secure: KgZvU/1qj9SJTpR2RpKiaz6Z7KFz0XBBKeqOqybsDOW4cgxcl3aldiv04OTNWQDhFXnEx1KJy+X2fS8kyO2cUZWaI4LvgaTPRQomB9VvTQFY1n3TPgr62N3hfECBdTePmgNiTHyvO3nhWp6OXZ8sPtTTNFswqA+MHNlhnosl+e1UfgHgpbGNAr6Z7THYJg8q1nfg4CKNitX3Clm+p+8xc1WWJdIjvpzN7kPjRdcmCOjEFVikKnQwaMDscLZEZ25xv+6oMjgDg5A2JsR2CGC1TgLf124MBGAYQXLvnsynz5+dMA5YVo48tmX4YXt7IX4jLEhPLRbPtUb8Ullxrf7+VnFCis0vtvhlngDK+5gURihXkj2PbkNQC7SNsvp2xglldIKbFzIdyyeT95EqgjIsZggfc5KMNC4zWdrC3LYIcnkpp1F3ymDEyrzwagDgpUiSd1CnZC7rIKsxy0S8eTK2HVitaYJ8QZuI6dfv9qaadSW4oCLTHabzyU0h1SkGQiyGn2ngs3Rx7BDVIQo2jPaXZYr1PQ0272m5rFMJS1XArJBla+nqHcpqSiy7/94YLpX4xTcuh6KSACM2FL3QHBha/GYFyVREkjMQW+XRL5FuGZ0nkm5r3GmuUrbL9XoWzRSuKu7aGnPa+xxhWPLpohGbhXpmTTg5PCn9mIdpehuqlcA=
+  app: sample-2016
+  all_branches: true
