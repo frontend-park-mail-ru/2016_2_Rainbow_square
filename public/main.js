@@ -32,12 +32,13 @@ function createMessage (opts, isMy = false) {
 	} else {
 		message.style.backgroundColor = `#${technolibs.colorHash(opts.email || '')}`;
 
-	message.innerHTML = opts.message;
-	email.innerHTML = opts.email;
-	message.appendChild(email);
+		message.innerHTML = opts.message;
+		email.innerHTML = opts.email;
+		message.appendChild(email);
 
 
-	return message;
+		return message;
+	}
 }
 
 function onChat (form) {
