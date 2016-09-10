@@ -32,7 +32,6 @@ function createMessage (opts, isMy = false) {
 	} else {
 		message.style.backgroundColor = `#${technolibs.colorHash(opts.email || '')}`;
 
-	}
 	message.innerHTML = opts.message;
 	email.innerHTML = opts.email;
 	message.appendChild(email);
@@ -70,6 +69,20 @@ function hello(text) {
 	return 'Привет, ' + text;
 }
 
-if (typeof exports === 'object') {
-	exports.hello = hello;
+if (typeof exports === "object") {
+    exports.hello = hello;
+    exports.plural = plural;
+}
+
+function plural(number, language) {
+    const MAGIC_CONST = 10;
+    let a = (parseInt(number));
+    if (a) {
+        let b = (a % MAGIC_CONST).toString();
+        for (let key in language) {
+            if ((language[key].indexOf(b) != -1) && (language[key][0](a)))
+                return number + ' ' + language[key][language[key].length - 1];
+        }
+    }
+    return number + ' ' + language.last[2];
 }
