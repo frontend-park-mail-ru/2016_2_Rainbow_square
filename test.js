@@ -1,6 +1,7 @@
 let assert = require('assert');
 let hello = require('./public/main').hello;
 let plural = require('./public/main').plural;
+let filter = require('./public/main').filter;
 
 assert.equal(hello('Test'), 'Привет, Test');
 
@@ -50,8 +51,10 @@ language_irish_gaelic.last = [function notException(number) {
     return true;
 }, 'all', 'cad a tharlaíonn nuair2'];
 
-
-assert.equal(hello('Test'), 'Привет, Test');
+global.window = {
+    rules: ['lol', 'lemon']
+}
+//тесты по по плюрации
 
 assert.equal(plural(0, language_en), '0 clicks');
 assert.equal(plural(1, language_en), '1 click');
@@ -72,3 +75,10 @@ assert.equal(plural(1, language_irish_gaelic), '1 click');
 assert.equal(plural(2, language_irish_gaelic), '2 cad a tharlaíonn');
 assert.equal(plural(111, language_irish_gaelic), '111 cad a tharlaíonn nuair2');
 
+//тесты по функции фильтрации мата
+assert.equal(filter('lol'), '***');
+assert.equal(filter('lemon'), '*****');
+assert.equal(filter('lol df'), '*** df');
+assert.equal(filter('lemondf'), 'lemondf');
+assert.equal(filter(console.log()), '');
+assert.equal(undefined, undefined);

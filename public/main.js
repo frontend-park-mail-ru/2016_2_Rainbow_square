@@ -73,6 +73,7 @@ function hello(text) {
 if (typeof exports === "object") {
     exports.hello = hello;
     exports.plural = plural;
+	exports.filter = filter;
 }
 
 function plural(number, language) {
@@ -86,4 +87,22 @@ function plural(number, language) {
         }
     }
     return number + ' ' + language.last[2];
+}
+
+function filter(str = '') {
+	let rules = window.rules;
+    //очищаем слова от пробелов и прочего
+	str += '';
+	rules = rules.map(rule => {
+		return {
+			regex: RegExp(`\\b${rule}\\b`, 'g'),
+			length: rule.length
+		}
+	});
+
+	rules.forEach(rule => {
+		str = str.replace(rule.regex, new Array(rule.length + 1).join('*'));
+	})
+
+	return str;
 }
