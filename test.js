@@ -79,7 +79,7 @@ assert.equal(plural(1, language_irish_gaelic), '1 click');
 assert.equal(plural(2, language_irish_gaelic), '2 cad a tharlaíonn');
 assert.equal(plural(111, language_irish_gaelic), '111 cad a tharlaíonn nuair2');
 
-//тесты по функции фильтрации мата
+//тесты по функции фильтрации матfffff
 assert.equal(filter('lol'), '***');
 assert.equal(filter('lemon'), '*****');
 assert.equal(filter('lol df'), '*** df');
