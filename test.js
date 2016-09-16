@@ -4,49 +4,53 @@ let plural = require('./public/main').plural;
 let filter = require('./public/main').filter;
 
 assert.equal(hello('Test'), 'Привет, Test');
-
-let language_en = {}
+const MAGIC_CONST = 10;
+let language_en = {};
 language_en.first = [function notException(number) {
-    if (number < 10)
+    if (language_en.first.includes(number))
         return true;
     else return false;
-}, '1', 'click'];
+}, 1, 'click'];
 language_en.last = [function notException(number) {
     return true;
 }, 'all', 'clicks'];
 
-let language_rus = {}
+let language_rus = {};
 language_rus.first = [function notException(number) {
-    if (number % 100 == 11) return false;
+    if (number % 100 == 11 || !language_rus.first.includes(number % MAGIC_CONST)) return false;
     else return true;
-}, '1', 'клик'];
+}, 1, 'клик'];
 language_rus.second = [function notException(number) {
-    if (number % 100 == 12 || number % 100 == 13 || number % 100 == 14) return false;
-    else return true;
-}, '2', '3', '4', 'клика']
+    if (number % 100 == 12 || number % 100 == 13 || number % 100 == 14
+        || !language_rus.second.includes(number % MAGIC_CONST)) return false;
+    else
+        return true;
+
+}, 2, 3, 4, 'клика'];
 language_rus.last = [function notException() {
     return true;
 }, 'all', 'кликов'];
 
-let language_irish_gaelic = {}
+
+let language_irish_gaelic = {};
 //гугл-переводчик считает, что немного другие правила плюрации
 language_irish_gaelic.first = [function notException(number) {
-    if (number < 10)
+    if (language_irish_gaelic.first.includes(number))
         return true;
     else return false;
-}, '1', 'click'];
+}, 1, 'click'];
 language_irish_gaelic.second = [function notException(number) {
-    if (number < 10) return true;
+    if (language_irish_gaelic.second.includes(number)) return true;
     else return false;
-}, '2', 'cad a tharlaíonn'];
+}, 2, 'cad a tharlaíonn'];
 language_irish_gaelic.third = [function notException(number) {
-    if (number < 10) return true;
+    if (language_irish_gaelic.third.includes(number)) return true;
     else return false;
-}, '3', '4', '5', '6', 'cad a tharlaíonn nuair'];
+}, 3, 4, 5, 6, 'cad a tharlaíonn nuair'];
 language_irish_gaelic.fourth = [function notException(number) {
-    if (number < 11 && number > 7) return true;
+    if (language_irish_gaelic.fourth.includes(number)) return true;
     else return false;
-}, '7', '8', '9', '0', 'cad a tharlaíonn2'];
+}, 7, 8, 9, 10, 'cad a tharlaíonn2'];
 language_irish_gaelic.last = [function notException(number) {
     return true;
 }, 'all', 'cad a tharlaíonn nuair2'];
@@ -80,5 +84,4 @@ assert.equal(filter('lol'), '***');
 assert.equal(filter('lemon'), '*****');
 assert.equal(filter('lol df'), '*** df');
 assert.equal(filter('lemondf'), 'lemondf');
-assert.equal(filter(console.log()), '');
 assert.equal(undefined, undefined);
