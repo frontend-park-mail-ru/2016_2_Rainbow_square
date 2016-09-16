@@ -11,3 +11,6 @@ deploy:
   app: square128
   on:
     repo: djkah11/2016_2_Rainbow_square
+   on:
+   tags: true
+   branch: master
