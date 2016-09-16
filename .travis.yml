@@ -3,7 +3,7 @@ node_js:
 - '6'
 branches:
   only:
-  - master
+  - test
 deploy:
   provider: heroku
   app: rainbow-square
