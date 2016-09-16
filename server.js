@@ -25,6 +25,18 @@ app.get('/api/messages', function (req, res) {
 	])
 });
 
+let requestCountMap = new Map();
+app.post('/users', (req, res) => {
+	console.log(req.body);
+	var email = req.body.email;
+	var count = 1;
+	if (requestCountMap.has(email)) {
+		count = requestCountMap.get(email) + 1;
+	}
+	requestCountMap.set(email, count);
+	res.send(count.toString());
+});
+
 app.listen(process.env.PORT || 3000, () => {
 	console.log(`App started on port ${process.env.PORT || 3000}`);
 });
