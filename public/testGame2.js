@@ -50,3 +50,10 @@ function incCell(x,y) {
     cells[y][x] = (cells[y][x] + 1) % stateCount;
     cell.classList.add(stateName(cells[y][x]));
 }
+if (typeof exports === "object") {
+
+}
+else
+{
+    window.onload = init;
+}

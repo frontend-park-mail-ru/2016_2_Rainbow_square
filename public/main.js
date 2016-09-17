@@ -103,4 +103,3 @@ function filter(str = '') {
 
     return str;
 }
-window.onload = init;
