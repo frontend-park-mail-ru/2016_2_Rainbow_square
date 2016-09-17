@@ -2,7 +2,10 @@ language: node_js
 node_js:
 - '6'
 branches:
-  all_branches: true
+  only:
+  - dev
+  - test
+  - master
 
 deploy:
   provider: heroku
@@ -11,5 +14,3 @@ deploy:
   app: square128
   on:
     repo: djkah11/2016_2_Rainbow_square
-   tags: true
-   branch: master
