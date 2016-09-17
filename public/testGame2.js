@@ -1,7 +1,7 @@
 /**
  * Created by alexey on 16.09.16.
  */
-if (typeof exports === "object") {
+if (typeof exports != "object") {
     window.onload = function () {
         var h = 4;
         var w = 4;
