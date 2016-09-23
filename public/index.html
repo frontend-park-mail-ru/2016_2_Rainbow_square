@@ -1,33 +1,16 @@
-
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<title></title>
-	<link rel='subresource' href='critical.js'>
-	<style>
-		.cell {
-			width: 25%;
-			height: 25%;
-			display: inline-block;
-			border: solid 1px;
-			box-sizing: border-box;
-		}
-		.cell0 {
-			background-image: url(a.png);}
-		.cell1 { background-image: url(g.png); }
-		.cell2 {background-image: url(b.png); }
-		#game {
-			text-align: center;
-			font-size: 0;
-		}
-	</style>
-</head>
-
-<body>
-<div id="game">
-	<script src="testGame2.js" charset="utf-8"></script>
-
-</div>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="game.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="style.css" charset="utf-8">
+  </head>
+  <body>
+    <div id="game"></div><div id="menu">
+      <button type="button" id="newGame">Новая игра</button><br>
+      <label for="stepCount">Ходов сделано: </label>
+      <label id="stepCount">0</label>
+    </div>
+  </body>
 </html>
