@@ -28,7 +28,6 @@
       message.classList.add('chat__message_my');
     } else {
       message.style.backgroundColor = `#${technolibs.colorHash(opts.email || '')}`;
-
     }
     message.innerHTML = opts.message;
     email.innerHTML = opts.email;
