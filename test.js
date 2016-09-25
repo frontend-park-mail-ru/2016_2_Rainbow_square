@@ -1,4 +1,3 @@
-(function () {
   const assert = require('assert');
   const hello = require('./public/main').hello;
   const plural = require('./public/main').plural;
@@ -80,4 +79,3 @@
   assert.equal(filter('lol df'), '*** df');
   assert.equal(filter('lemondf'), 'lemondf');
   assert.equal(undefined, undefined);
-}());
