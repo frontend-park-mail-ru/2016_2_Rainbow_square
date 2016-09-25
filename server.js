@@ -1,42 +1,45 @@
-let express = require('express');
-let parser = require('body-parser');
-let app = express();
-let technoDoc = require('techno-gendoc');
-let path = require('path');
+(function () {
+  const express = require('express');
+  const parser = require('body-parser');
 
-let technolibs = require('technolibs');
+  const app = express();
+  const technoDoc = require('techno-gendoc');
 
-app.use('/', express.static('public'));
-technoDoc.generate(require('./api'), 'public');
+  const technolibs = require('technolibs');
 
-app.use(parser.json());
-app.use('/libs', express.static('node_modules'));
+  app.use('/', express.static('public'));
+  technoDoc.generate(require('./api'), 'public');
 
-app.post('/api/messages', (req, res) => {
-	technolibs.publish(req.body).then(body => res.json(req.body));
-});
+  app.use(parser.json());
+  app.use('/libs', express.static('node_modules'));
 
-app.get('/api/messages', function (req, res) {
-	res.send([
-		technoDoc.mock(require('./api/scheme/Message')),
-		technoDoc.mock(require('./api/scheme/Message')),
-		technoDoc.mock(require('./api/scheme/Message')),
-		technoDoc.mock(require('./api/scheme/Message'))
-	])
-});
+  app.post('/api/messages', (req, res) => {
+    technolibs.publish(req.body).then(body => res.json(req.body));
+  });
 
-let requestCountMap = new Map();
-app.post('/users', (req, res) => {
-	console.log(req.body);
-	var email = req.body.email;
-	var count = 1;
-	if (requestCountMap.has(email)) {
-		count = requestCountMap.get(email) + 1;
-	}
-	requestCountMap.set(email, count);
-	res.send(count.toString());
-});
+  app.get('/api/messages', (req, res) => {
+    res.send([
+      technoDoc.mock(require('./api/scheme/Message')),
+      technoDoc.mock(require('./api/scheme/Message')),
+      technoDoc.mock(require('./api/scheme/Message')),
+      technoDoc.mock(require('./api/scheme/Message')),
+    ]);
+  });
 
-app.listen(process.env.PORT || 3000, () => {
-	console.log(`App started on port ${process.env.PORT || 3000}`);
-});
+  const requestCountMap = new Map();
+  app.post('/users', (req, res) => {
+    console.log(req.body);
+    const email = req.body.email;
+    let count = 1;
+    if (requestCountMap.has(email)) {
+      count = requestCountMap.get(email) + 1;
+    }
+
+    requestCountMap.set(email, count);
+    res.send(count.toString());
+  });
+
+  app.listen(process.env.PORT || 3000, () => {
+    console.log(`App started on port ${process.env.PORT || 3000}`);
+  });
+}());
