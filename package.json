@@ -2,13 +2,13 @@
   "name": "sample",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "sevrer.js",
   "scripts": {
     "test": "node test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/frontend-park-mail-ru/sample.git"
+    "url": "https://github.com/frontend-park-mail-ru/2016_2_Rainbow_square.git"
   },
   "engines": {
     "node": "6.3.1"
