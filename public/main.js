@@ -1,4 +1,3 @@
-(function () {
   let userData = {};
 
   function onLogin(form) {
@@ -102,4 +101,3 @@
     exports.plural = plural;
     exports.filter = filter;
   }
-}());
