@@ -3,6 +3,7 @@ body {
     box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 .chat {
     height: 50vh;
     overflow: scroll;
@@ -44,6 +45,8 @@ body {
     color: #fff;
 }
 
+=======
+>>>>>>> upstream/lesson-4
 .cssload-wrap {
     display: flex;
     display: -o-flex;
