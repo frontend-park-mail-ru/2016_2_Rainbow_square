@@ -43,8 +43,7 @@
 					</div>
 					<div class="js-controls">
 					</div>
-				<form>
-			`;
+				</form> `
 		}
 		
 		/**

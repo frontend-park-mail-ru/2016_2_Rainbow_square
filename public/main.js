@@ -4,7 +4,7 @@
 (function () {
   if (typeof window === 'object') {
     // import
-    // const Button = window.Button;
+     const Button = window.Button;
     const Chat = window.Chat;
     const Form = window.Form;
 
@@ -27,7 +27,7 @@
         ],
         controls: [
           {
-            text: 'Войти',
+            text: 'Login',
             attrs: {
               type: 'submit',
             },
@@ -49,8 +49,7 @@
       chat.set({
         username: formData.user,
         email: formData.email,
-      })
-          .render();
+      }).render();
 
       chat.subscribe();
 

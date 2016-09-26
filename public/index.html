@@ -3,11 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Frontend privet</title>
-	<link rel="stylesheet" href="/css/milligram.min.css"/>
-	<link rel="stylesheet" href="/css/main.css" />
+	<link rel="stylesheet" href="css/milligram.min.css"/>
+	<link rel="stylesheet" href="css/main.css" />
 
-	<link rel="stylesheet" href="/components/button/button.css" />
-	<link rel="stylesheet" href="/components/chat/chat.css" />
+	<link rel="stylesheet" href="components/button/button.css" />
+	<link rel="stylesheet" href="components/chat/chat.css" />
+
 </head>
 <body>
 
@@ -16,11 +17,34 @@
 <div class="js-chat" hidden="hidden">
 </div>
 
-<script src="/components/button/button.js"></script>
-<script src="/components/form/form.js"></script>
-<script src="/components/chat/chat.js"></script>
-
-<script src="/libs/technolibs/index.js"></script>
+<script src="components/button/button.js"></script>
+<script src="components/form/form.js"></script>
+<script src="components/chat/chat.js"></script>
 <script src="main.js"></script>
+<script src="/libs/technolibs/index.js"></script>
+
+
+<!--
+<form action="/users" method="post" onsubmit="onSubmit(this); return false;">
+	<input required placeholder="Ваш email" type="email"  name="email" value="" />
+	<input required placeholder="Ваше имя" type="text" name="user" value="" />
+	<button class="button" style="vertical-align:middle" name="name"><span>Login</span>
+	</button>
+</form>
+-->
+<noscript><div class="away_wrap page_block">
+	<div ></div>
+	<div >
+		<h2>Для работы с сайтом необходима поддержка JavaScript и Cookies.</h2>
+		<div>
+			Чтобы использовать все возможности сайта, загрузите и установите один из этих браузеров:
+			<ul>
+				<li><a href="https://www.google.ru/chrome/browser/desktop/index.html" >Chrome</a></li>
+				<li><a href="http://www.mozilla-europe.org" >Firefox</a></li>
+				<li><a href="http://opera.com" >Opera</a></li>
+			</ul>
+		</div>
+	</div>
+</div></noscript>
 </body>
 </html>
