@@ -59,8 +59,7 @@
       chat.set({
         username: formData.user,
         email: formData.email
-      })
-          .render();
+      }).render();
 
       chat.subscribe();
 
