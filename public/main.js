@@ -4,7 +4,7 @@
 (function () {
   if (typeof window === 'object') {
     // import
-     const Button = window.Button;
+    const Button = window.Button;
     const Chat = window.Chat;
     const Form = window.Form;
 
@@ -14,22 +14,32 @@
     const form = new Form({
       el: document.createElement('div'),
       data: {
-        title: 'Login',
+        title: 'Welcome!',
         fields: [
-          {
-            name: 'user',
-            type: 'text',
-          },
           {
             name: 'email',
             type: 'email',
+            placeholder: "e-mail",
+            required: true,
+          },
+          {
+            name: 'user',
+            type: 'text',
+            placeholder: "your name",
+            required: true,
           },
         ],
         controls: [
           {
-            text: 'Login',
+            text: 'sign in',
             attrs: {
               type: 'submit',
+            },
+          },
+          {
+            text: 'sign up',
+            attrs: {
+              type: 'reset',  //спорно
             },
           },
         ],
@@ -40,21 +50,30 @@
       el: document.createElement('div'),
     });
 
-    form.on('submit', (event) => {
+    form.on('submit', event => {
       event.preventDefault();
 
-      const formData = form.getFormData();
+      let formData = form.getFormData();
       technolibs.request('/api/login', formData);
 
       chat.set({
         username: formData.user,
-        email: formData.email,
-      }).render();
+        email: formData.email
+      })
+          .render();
 
       chat.subscribe();
 
       loginPage.hidden = true;
       chatPage.hidden = false;
+    });
+
+    form.on('reset', (event) => {
+      event.preventDefault();
+      const formData = form.getFormData();
+     // technolibs.request('/api/login', formData);
+
+      loginPage.hidden = true;
     });
 
     loginPage.appendChild(form.el);

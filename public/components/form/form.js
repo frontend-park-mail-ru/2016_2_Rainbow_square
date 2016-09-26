@@ -17,7 +17,7 @@
 		}
 
 		render () { 
-			this._updateHtml()
+			this._updateHtml();
 			this._installControls();
 		}
 		
@@ -28,7 +28,8 @@
 		_getFields () {
 			let { fields = [] } = this.data;
 			
-			return fields.map(field => { return `<input type="text" name="${field.name}">` }).join(' ')
+			return fields.map(field => {
+				return `<input ${field.required? "required": ""} placeholder="${field.placeholder}" type="${field.type}" name="${field.name}">` }).join(' ')
 		}
 		
 		/**
@@ -36,11 +37,12 @@
 		 */
 		_updateHtml () {
 			this.el.innerHTML = `
-				<form>
 					<h1>${this.data.title}</h1>
+				<form action="/" method="POST">
 					<div>
 						${this._getFields()}
 					</div>
+					
 					<div class="js-controls">
 					</div>
 				</form> `
@@ -53,7 +55,7 @@
 			let { controls = [] } = this.data;
 			
 			controls.forEach(data => {
-				let control = new Button({text: data.text}).render();
+				let control = new Button({text: data.text, attrs: data.attrs}).render();
 				this.el.querySelector('.js-controls').appendChild(control.el);
 			});
 		}

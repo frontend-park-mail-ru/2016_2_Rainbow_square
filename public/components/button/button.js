@@ -15,6 +15,7 @@
 		}
 
 		render () {
+			console.log(this.attrs);
 			this.el.innerHTML = this.text;
 			this.el.classList.add('button');
 			this.setAttrs(this.attrs);
