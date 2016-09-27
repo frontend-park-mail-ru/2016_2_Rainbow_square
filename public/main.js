@@ -1,6 +1,22 @@
 /* global Button */
 /* global technolibs */
 /* global document */
+//В дальнейшем это будет разнесено по модулям, пока так пойдет :)
+function jsonRequest(url, data) {
+  const temp = new XMLHttpRequest();
+  temp.open('POST', url, false);
+  temp.setRequestHeader('Content-Type', 'application/json');
+  temp.send(JSON.stringify(data));
+  return temp.responseText;
+}
+
+function getRequest(url) {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', url, false);
+  xhr.send();
+  return xhr.responseText;
+}
+
 (function () {
   if (typeof window === 'object') {
     // import
@@ -58,7 +74,9 @@
       event.preventDefault();
 
       let formData = form.getFormData();
-      technolibs.request('/api/login', formData);
+     // technolibs.request('/api/login', formData);
+      const result = jsonRequest('https://rainbow-square-backend.herokuapp.com/api/session/', formData);
+      const obj = JSON.parse(result);
 
       chat.set({
         username: formData.username,

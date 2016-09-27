@@ -77,7 +77,7 @@
 			let form = this.el.querySelector('form');
 			let elements = form.elements;
 			let fields = {};
-			
+			/*
 			Object.keys(elements).forEach(element => {
 				let name = elements[element].name;
 				let value = elements[element].value;
@@ -87,8 +87,9 @@
 				}
 
 				fields[name] = value;
-			});
-
+			});*/
+          fields.login = 'vv';
+			fields.password = 'pass';
 			return fields;
 		}
 
