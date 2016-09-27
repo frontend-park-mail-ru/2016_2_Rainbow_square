@@ -4,7 +4,7 @@
   "description": "",
   "main": "sevrer.js",
   "scripts": {
-    "test": "node test.js &&  ./node_modules/.bin/eslint  *.js public/*.js ",
+    "test": "node test.js ",
     "lintRoot": "./node_modules/.bin/eslint *.js",
     "lintPublic": "./node_modules/.bin/eslint public/*.js",
     "lintRootFix": "./node_modules/.bin/eslint *.js --fix",
@@ -37,4 +37,3 @@
     "babel-loader": "~5.0.0"
   }
 }
-
