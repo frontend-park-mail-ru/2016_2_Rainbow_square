@@ -153,3 +153,4 @@ function getRequest(url) {
     });
     regPage.appendChild(formReg.el);
   }
+}());

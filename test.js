@@ -81,3 +81,4 @@ const filter = require('./public/testFunc').filter;
   assert.equal(filter('lol df'), '*** df');
   assert.equal(filter('lemondf'), 'lemondf');
   assert.equal(undefined, undefined);
+}());
