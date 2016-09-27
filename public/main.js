@@ -18,9 +18,9 @@
         title: 'Welcome!',
         fields: [
           {
-            name: 'email',
-            type: 'email',
-            placeholder: "e-mail",
+            name: 'username',
+            type: 'text',
+            placeholder: "your name",
             required: true,
           },
           {
@@ -61,8 +61,8 @@
       technolibs.request('/api/login', formData);
 
       chat.set({
-        username: formData.user,
-        email: formData.email
+        username: formData.username,
+        //email: formData.email
       }).render();
 
       chat.subscribe();
