@@ -17,7 +17,7 @@
 		render () {
 			console.log(this.attrs);
 			this.el.innerHTML = this.text;
-			this.el.classList.add('button');
+			//this.el.classList.add('button2');
 			this.setAttrs(this.attrs);
 			return this;
 		}

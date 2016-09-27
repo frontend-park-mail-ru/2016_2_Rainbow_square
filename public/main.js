@@ -10,6 +10,7 @@
 
     const loginPage = document.querySelector('.js-login');
     const chatPage = document.querySelector('.js-chat');
+    const regPage = document.querySelector('.js-reg');
 
     const form = new Form({
       el: document.createElement('div'),
@@ -23,9 +24,9 @@
             required: true,
           },
           {
-            name: 'user',
-            type: 'text',
-            placeholder: "your name",
+            name: 'password',
+            type: 'password',
+            placeholder: "password",
             required: true,
           },
         ],
@@ -34,17 +35,20 @@
             text: 'sign in',
             attrs: {
               type: 'submit',
+              class: "button2"
             },
           },
           {
-            text: 'sign up',
+            text: 'Not registered yet?',
             attrs: {
               type: 'reset',  //спорно
+              class: 'button1'
             },
           },
         ],
       },
     });
+
 
     const chat = new Chat({
       el: document.createElement('div'),
@@ -73,11 +77,52 @@
      // technolibs.request('/api/login', formData);
 
       loginPage.hidden = true;
+      regPage.hidden = false;
     });
 
     loginPage.appendChild(form.el);
     chatPage.appendChild(chat.el);
 
     loginPage.hidden = false;
+    // Можно использовать старую, но тогда придется делать новую иерархию классов,
+    // что приведет к проблемам в дальнеших мерджах
+    const formReg = new Form({
+      el: document.createElement('div'),
+      data: {
+        title: 'Registration',
+        fields: [
+          {
+            name: 'email',
+            type: 'email',
+            placeholder: "e-mail",
+            required: true,
+          },
+          {
+            name: 'username',
+            type: 'text',
+            placeholder: "your login",
+            required: true,
+          },
+          {
+            name: 'password',
+            type: 'password',
+            placeholder: "password",
+            required: true,
+          },
+        ],
+        controls: [
+          {
+            text: 'sign up',
+            attrs: {
+              type: 'submit',
+              class: "button2"
+            },
+          },
+        ],
+      },
+    });
+    regPage.appendChild(formReg.el);
+
+
   }
 }());
