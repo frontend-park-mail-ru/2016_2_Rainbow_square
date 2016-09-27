@@ -1,6 +1,6 @@
 const Form = window.Form;
-//ДЛЯ WEBPACK
-export  let form = new Form({
+// ДЛЯ WEBPACK
+export const form = new Form({
   el: document.createElement('div'),
   data: {
     title: 'Welcome!',
@@ -8,13 +8,13 @@ export  let form = new Form({
       {
         name: 'username',
         type: 'text',
-        placeholder: "your name",
+        placeholder: 'your name',
         required: true,
       },
       {
         name: 'password',
         type: 'password',
-        placeholder: "password",
+        placeholder: 'password',
         required: true,
       },
     ],
@@ -23,14 +23,14 @@ export  let form = new Form({
         text: 'sign in',
         attrs: {
           type: 'submit',
-          class: "button2"
+          class: 'button2',
         },
       },
       {
         text: 'Not registered yet?',
         attrs: {
-          type: 'reset',  //спорно
-          class: 'button1'
+          type: 'reset',  // спорно
+          class: 'button1',
         },
       },
     ],

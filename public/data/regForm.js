@@ -1,4 +1,4 @@
-//ДЛЯ WEBPACK
+// ДЛЯ WEBPACK
 const formReg = new Form({
   el: document.createElement('div'),
   data: {
@@ -7,19 +7,19 @@ const formReg = new Form({
       {
         name: 'email',
         type: 'email',
-        placeholder: "e-mail",
+        placeholder: 'e-mail',
         required: true,
       },
       {
         name: 'username',
         type: 'text',
-        placeholder: "your login",
+        placeholder: 'your login',
         required: true,
       },
       {
         name: 'password',
         type: 'password',
-        placeholder: "password",
+        placeholder: 'password',
         required: true,
       },
     ],
@@ -28,10 +28,10 @@ const formReg = new Form({
         text: 'sign up',
         attrs: {
           type: 'submit',
-          class: "button2"
+          class: 'button2',
         },
       },
     ],
   },
 });
-export {formReg};
+export { formReg };

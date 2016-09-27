@@ -1,7 +1,7 @@
-/* global Button */
-/* global technolibs */
 /* global document */
-//В дальнейшем это будет разнесено по модулям, пока так пойдет :)
+/* eslint no-unused-vars: ["error", { "varsIgnorePattern": "Request" }]*/
+// В дальнейшем это будет разнесено по модулям, пока так пойдет :)
+
 function jsonRequest(url, data) {
   const temp = new XMLHttpRequest();
   temp.open('POST', url, false);
@@ -20,7 +20,6 @@ function getRequest(url) {
 (function () {
   if (typeof window === 'object') {
     // import
-    const Button = window.Button;
     const Chat = window.Chat;
     const Form = window.Form;
 
@@ -36,13 +35,13 @@ function getRequest(url) {
           {
             name: 'username',
             type: 'text',
-            placeholder: "your name",
+            placeholder: 'your name',
             required: true,
           },
           {
             name: 'password',
             type: 'password',
-            placeholder: "password",
+            placeholder: 'password',
             required: true,
           },
         ],
@@ -51,14 +50,14 @@ function getRequest(url) {
             text: 'sign in',
             attrs: {
               type: 'submit',
-              class: "button2"
+              class: 'button2',
             },
           },
           {
             text: 'Not registered yet?',
             attrs: {
-              type: 'reset',  //спорно
-              class: 'button1'
+              type: 'reset',  // спорно
+              class: 'button1',
             },
           },
         ],
@@ -70,13 +69,15 @@ function getRequest(url) {
       el: document.createElement('div'),
     });
 
-    form.on('submit', event => {
+    form.on('submit', (event) => {
       event.preventDefault();
 
-      let formData = form.getFormData();
+      const formData = form.getFormData();
      // technolibs.request('/api/login', formData);
       const result = jsonRequest('https://rainbow-square-backend.herokuapp.com/api/session/', formData);
       const obj = JSON.parse(result);
+      console.log(obj);
+      console.log("Login!");
 
       chat.set({
         username: formData.username,
@@ -90,8 +91,7 @@ function getRequest(url) {
     });
 
     form.on('reset', (event) => {
-      event.preventDefault();
-      const formData = form.getFormData();
+        event.preventDefault();
      // technolibs.request('/api/login', formData);
 
       loginPage.hidden = true;
@@ -112,19 +112,19 @@ function getRequest(url) {
           {
             name: 'email',
             type: 'email',
-            placeholder: "e-mail",
+            placeholder: 'e-mail',
             required: true,
           },
           {
             name: 'username',
             type: 'text',
-            placeholder: "your login",
+            placeholder: 'your login',
             required: true,
           },
           {
             name: 'password',
             type: 'password',
-            placeholder: "password",
+            placeholder: 'password',
             required: true,
           },
         ],
@@ -133,14 +133,23 @@ function getRequest(url) {
             text: 'sign up',
             attrs: {
               type: 'submit',
-              class: "button2"
+              class: 'button2',
             },
           },
         ],
       },
     });
+    formReg.on('submit', (event) => {
+      event.preventDefault();
+
+      const formData = form.getFormData();
+     // technolibs.request('/api/login', formData);
+      const result = jsonRequest('https://rainbow-square-backend.herokuapp.com/api/user/', formData);
+      const obj = JSON.parse(result);
+      console.log(obj);
+      console.log("Registration!")
+      regPage.hidden = true;
+    });
     regPage.appendChild(formReg.el);
-
-
   }
 }());

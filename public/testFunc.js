@@ -18,9 +18,10 @@ function hello(text) {
 }
 
 function filter(str = '') {
+  let strC = str;
   let rules = window.rules;
   // очищаем слова от пробелов и прочего
-  str += '';
+  strC += '';
   rules = rules.map((rule) => {
     return {
       regex: RegExp(`\\b${rule}\\b`, 'g'),
@@ -29,10 +30,10 @@ function filter(str = '') {
   });
 
   rules.forEach((rule) => {
-    str = str.replace(rule.regex, new Array(rule.length + 1).join('*'));
+    strC = strC.replace(rule.regex, new Array(rule.length + 1).join('*'));
   });
 
-  return str;
+  return strC;
 }
 
 if (typeof exports === 'object') {

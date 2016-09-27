@@ -8,7 +8,7 @@
     "lintRoot": "./node_modules/.bin/eslint *.js",
     "lintPublic": "./node_modules/.bin/eslint public/*.js",
     "lintRootFix": "./node_modules/.bin/eslint *.js --fix",
-    "lintPublicFix": "./node_modules/.bin/eslint public/*.js --fix"
+    "lintPublicFix": "./node_modules/.bin/eslint public/* *.js --fix"
   },
   "repository": {
     "type": "git",
