@@ -79,15 +79,15 @@
       const elements = form.elements;
       const fields = {};
 
-       Object.keys(elements).forEach(element => {
-       let node = elements[element]
+      Object.keys(elements).forEach((element) => {
+        const node = elements[element];
 
-       if (!node.name || node.tagName.toLowerCase() !== 'input') {
-       return;
-       }
+        if (!node.name || node.tagName.toLowerCase() !== 'input') {
+          return;
+        }
 
-       fields[name] = node.value;
-       });
+        fields[name] = node.value;
+      });
 
       return fields;
     }

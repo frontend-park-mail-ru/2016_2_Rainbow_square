@@ -77,7 +77,7 @@ function getRequest(url) {
       const result = jsonRequest('https://rainbow-square-backend.herokuapp.com/api/session/', formData);
       const obj = JSON.parse(result);
       console.log(obj);
-      console.log("Login!");
+      console.log('Login!');
 
       chat.set({
         username: formData.username,
@@ -91,7 +91,7 @@ function getRequest(url) {
     });
 
     form.on('reset', (event) => {
-        event.preventDefault();
+      event.preventDefault();
      // technolibs.request('/api/login', formData);
 
       loginPage.hidden = true;
@@ -147,7 +147,7 @@ function getRequest(url) {
       const result = jsonRequest('https://rainbow-square-backend.herokuapp.com/api/user/', formData);
       const obj = JSON.parse(result);
       console.log(obj);
-      console.log("Registration!")
+      console.log('Registration!');
       regPage.hidden = true;
     });
     regPage.appendChild(formReg.el);
