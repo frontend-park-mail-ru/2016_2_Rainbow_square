@@ -1,8 +1,10 @@
-  const assert = require('assert');
-  const hello = require('./public/main').hello;
-  const plural = require('./public/main').plural;
-  const filter = require('./public/main').filter;
+const assert = require('assert');
+const hello = require('./public/testFunc').hello;
+const plural = require('./public/testFunc').plural;
+const filter = require('./public/testFunc').filter;
 
+
+(function () {
   assert.equal(hello('Test'), 'Привет, Test');
   const MAGIC_CONST = 10;
   const languageEn = {};

@@ -1,0 +1,30 @@
+.button2 {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: chartreuse;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 15px;
+    padding: 0px;
+    width: 100px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+.button1 {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: greenyellow;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 11px;
+    font-size-adjust: 0.58;
+    padding: 0px;
+    width: 170px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+

@@ -1,42 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Frontend privet</title>
-    <link rel="stylesheet" href="/css/milligram.min.css"/>
-    <link rel="stylesheet" href="/css/main.css"/>
-    <script src="/libs/technolibs/index.js"></script>
-    <script src="main.js"></script>
+	<meta charset="UTF-8">
+	<title>Chat</title>
+	<link rel="stylesheet" href="css/milligram.min.css"/>
+	<link rel="stylesheet" href="css/main.css" />
+
+	<link rel="stylesheet" href="components/button/button.css" />
+	<link rel="stylesheet" href="components/chat/chat.css" />
+
 </head>
 <body>
 
-<div id="jsLogin">
-    <h3>Привет, залогинься!</h3>
-
-    <h4>Powered by Travis and Heroku</h4>
-
-    <form onsubmit="onLogin(this); return false;">
-        <input required placeholder="Ваш email" type="email" name="email" value=""/>
-        <input required placeholder="Ваше имя" type="text" name="user" value=""/>
-        <button name="name">
-            Привет!
-        </button>
-    </form>
+<div class="js-login" hidden="hidden">
+</div>
+<div class="js-chat" hidden="hidden">
+</div>
+<div class="js-reg" hidden="hidden">
 </div>
 
-<div id="jsChat" hidden>
-    <h3 id="jsTitle">Ты в чате, %username%!</h3>
-    <div id="jsMessages" class="chat">
-        <div class="cssload-wrap">
-            <div class="cssload-cssload-spinner"></div>
-        </div>
-    </div>
-    <form onsubmit="onChat(this); return false;">
-        <textarea required class="chat__input" name="message" cols="30" rows="10"></textarea>
-        <button name="name">
-            Отправить
-        </button>
-    </form>
-</div>
+<script src="components/button/button.js"></script>
+<script src="components/form/form.js"></script>
+<script src="components/chat/chat.js"></script>
+<script src="main.js"></script>
+<script src="/libs/technolibs/index.js"></script>
+
+
+<!--
+<form action="/users" method="post" onsubmit="onSubmit(this); return false;">
+	<input required placeholder="Ваш email" type="email"  name="email" value="" />
+	<input required placeholder="Ваше имя" type="text" name="user" value="" />
+	<button class="button" style="vertical-align:middle" name="name"><span>Login</span>
+	</button>
+</form>
+-->
+<noscript><div class="away_wrap page_block">
+	<div ></div>
+	<div >
+		<h2>Для работы с сайтом необходима поддержка JavaScript и Cookies.</h2>
+		<div>
+			Чтобы использовать все возможности сайта, загрузите и установите один из этих браузеров:
+			<ul>
+				<li><a href="https://www.google.ru/chrome/browser/desktop/index.html" >Chrome</a></li>
+				<li><a href="http://www.mozilla-europe.org" >Firefox</a></li>
+				<li><a href="http://opera.com" >Opera</a></li>
+			</ul>
+		</div>
+	</div>
+</div></noscript>
 </body>
 </html>

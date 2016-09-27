@@ -1,102 +1,155 @@
-  let userData = {};
 
-  function onLogin(form) {
-    userData = {
-      user: form.elements.user.value,
-      email: form.elements.email.value,
-    };
+/* global document */
+/* eslint no-unused-vars: ["error", { "varsIgnorePattern": "Request" }]*/
+// В дальнейшем это будет разнесено по модулям, пока так пойдет :)
 
-    jsLogin.hidden = true;
-    jsChat.hidden = false;
+function jsonRequest(url, data) {
+  const temp = new XMLHttpRequest();
+  temp.open('POST', url, false);
+  temp.setRequestHeader('Content-Type', 'application/json');
+  temp.send(JSON.stringify(data));
+  return temp.responseText;
+}
+
+function getRequest(url) {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', url, false);
+  xhr.send();
+  return xhr.responseText;
+}
 
 
-    if (userData.user) {
-      jsTitle.innerHTML = jsTitle.innerHTML.replace('%username%', userData.user);
-    }
+(function () {
+  if (typeof window === 'object') {
+    // import
+    const Chat = window.Chat;
+    const Form = window.Form;
 
-    subscribe();
-  }
+    const loginPage = document.querySelector('.js-login');
+    const chatPage = document.querySelector('.js-chat');
+    const regPage = document.querySelector('.js-reg');
 
-  function createMessage(opts, isMy = false) {
-    const message = document.createElement('div');
-    const email = document.createElement('div');
-
-    message.classList.add('chat__message');
-    email.classList.add('chat__email');
-
-    if (isMy) {
-      message.classList.add('chat__message_my');
-    } else {
-      message.style.backgroundColor = `#${technolibs.colorHash(opts.email || '')}`;
-    }
-    message.innerHTML = opts.message;
-    email.innerHTML = opts.email;
-    message.appendChild(email);
-
-    return message;
-  }
-
-  function onChat(form) {
-    const data = {
-      message: form.elements.message.value,
-      email: userData.email,
-    };
-
-    const result = technolibs.request('/api/messages', data);
-    form.reset();
-  }
-
-  function renderChat(items) {
-    jsMessages.innerHTML = '';
-    items.forEach((item) => {
-      const message = createMessage(item, item.email === userData.email);
-      jsMessages.appendChild(message);
-    });
-    jsMessages.scrollTop = jsMessages.scrollHeight;
-  }
-
-  function subscribe() {
-    technolibs.onMessage((data) => {
-      renderChat(Object.keys(data).map(key => data[key]));
-    });
-  }
-
-  function hello(text) {
-    return 'Привет, ' + text;
-  }
-
-  function plural(number, language) {
-    const parsedNumber = (parseInt(number));
-    if (parsedNumber) {
-      for (const key in language) {
-        if ((language[key][0](parsedNumber))) {
-          return number + ' ' + language[key][language[key].length - 1];
-        }
-      }
-    }
-    return number + ' ' + language.last[2];
-  }
-
-  function filter(str = '') {
-    let rules = window.rules;
-    // очищаем слова от пробелов и прочего
-    str += '';
-    rules = rules.map((rule) => {
-      return {
-        regex: RegExp(`\\b${rule}\\b`, 'g'),
-        length: rule.length,
-      };
+    const form = new Form({
+      el: document.createElement('div'),
+      data: {
+        title: 'Welcome!',
+        fields: [
+          {
+            name: 'username',
+            type: 'text',
+            placeholder: 'your name',
+            required: true,
+          },
+          {
+            name: 'password',
+            type: 'password',
+            placeholder: 'password',
+            required: true,
+          },
+        ],
+        controls: [
+          {
+            text: 'sign in',
+            attrs: {
+              type: 'submit',
+              class: 'button2',
+            },
+          },
+          {
+            text: 'Not registered yet?',
+            attrs: {
+              type: 'reset',  // спорно
+              class: 'button1',
+            },
+          },
+        ],
+      },
     });
 
-    rules.forEach((rule) => {
-      str = str.replace(rule.regex, new Array(rule.length + 1).join('*'));
+    const chat = new Chat({
+      el: document.createElement('div'),
     });
 
-    return str;
-  }
+    form.on('submit', (event) => {
+      event.preventDefault();
 
-  if (typeof exports === 'object') {
-    exports.hello = hello;
-    exports.plural = plural;
-    exports.filter = filter;
+      const formData = form.getFormData();
+     // technolibs.request('/api/login', formData);
+      const result = jsonRequest('https://rainbow-square-backend.herokuapp.com/api/session/', formData);
+      const obj = JSON.parse(result);
+      console.log(obj);
+      console.log('Login!');
+
+      chat.set({
+        username: formData.username,
+        //email: formData.email
+      }).render();
+
+      chat.subscribe();
+
+      loginPage.hidden = true;
+      chatPage.hidden = false;
+    });
+
+    form.on('reset', (event) => {
+      event.preventDefault();
+     // technolibs.request('/api/login', formData);
+
+      loginPage.hidden = true;
+      regPage.hidden = false;
+    });
+
+    loginPage.appendChild(form.el);
+    chatPage.appendChild(chat.el);
+
+    loginPage.hidden = false;
+    // Можно использовать старую, но тогда придется делать новую иерархию классов,
+    // что приведет к проблемам в дальнеших мерджах
+    const formReg = new Form({
+      el: document.createElement('div'),
+      data: {
+        title: 'Registration',
+        fields: [
+          {
+            name: 'email',
+            type: 'email',
+            placeholder: 'e-mail',
+            required: true,
+          },
+          {
+            name: 'username',
+            type: 'text',
+            placeholder: 'your login',
+            required: true,
+          },
+          {
+            name: 'password',
+            type: 'password',
+            placeholder: 'password',
+            required: true,
+          },
+        ],
+        controls: [
+          {
+            text: 'sign up',
+            attrs: {
+              type: 'submit',
+              class: 'button2',
+            },
+          },
+        ],
+      },
+    });
+    formReg.on('submit', (event) => {
+      event.preventDefault();
+
+      const formData = form.getFormData();
+     // technolibs.request('/api/login', formData);
+      const result = jsonRequest('https://rainbow-square-backend.herokuapp.com/api/user/', formData);
+      const obj = JSON.parse(result);
+      console.log(obj);
+      console.log('Registration!');
+      regPage.hidden = true;
+    });
+    regPage.appendChild(formReg.el);
   }
