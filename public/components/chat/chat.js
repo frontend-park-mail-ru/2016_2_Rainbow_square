@@ -1,6 +1,4 @@
 (function () {
-  'use strict';
-
   // import
   const Button = window.Button;
 
@@ -17,9 +15,8 @@
     }
 
     render() {
-      this._updateHtml();
+      this.updateHtml1();
     }
-
     /**
      * Обновить данные компонента
      * @param {object} data - данные компонента
@@ -30,21 +27,22 @@
       return this;
     }
 
-    _updateHtml() {
+    // eslint считает, что должна быть такая табуляция, лол
+    updateHtml1() {
       this.el.innerHTML = `
-				<h3 id="jsTitle">Ты в чате, ${this.data.username}!</h3>
-				<div id="jsMessages" class="chat">
-					<div class="cssload-wrap">
-						<div class="cssload-cssload-spinner"></div>
-					</div>
-				</div>
-				<form class="js-chat-form">
-					<textarea required class="chat__input" name="message" cols="30" rows="10"></textarea>
-					<button name="name">
-						Отправить
-					</button>
-				</form>
-			`;
+    <h3 id="jsTitle">Ты в чате, ${this.data.username}!</h3>
+<div id="jsMessages" class="chat">
+<div class="cssload-wrap">
+<div class="cssload-cssload-spinner"></div>
+</div>
+</div>
+<form class="js-chat-form">
+<textarea required class="chat__input" name="message" cols="30" rows="10"></textarea>
+<button name="name">
+	Отправить
+</button>
+</form>
+    `;
     }
 
     filter(str, rules = ['КЕК']) {
