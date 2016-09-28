@@ -1,11 +1,7 @@
 (function () {
-  'use strict';
-
   // import
   const Button = window.Button;
-
   class Form {
-
     /**
      * Конструктор класса Form
      */
@@ -17,16 +13,16 @@
     }
 
     render() {
-      this._updateHtml();
-      this._installControls();
+      this.updateHtml();
+      this.installControls();
     }
 
     /**
      * Вернуть поля формы
      * @return {string}
      */
-    _getFields() {
-      let { fields = [] } = this.data;
+    getFields() {
+      const { fields = [] } = this.data;
 
       return fields.map((field) => {
         return `<input ${field.required ? 'required' : ''} placeholder="${field.placeholder}" type="${field.type}" name="${field.name}">`;
@@ -36,24 +32,24 @@
     /**
      * Обновить html компонента
      */
-    _updateHtml() {
+    updateHtml() {
       this.el.innerHTML = `
-					<h1>${this.data.title}</h1>
-				<form action="/" method="POST">
-					<div>
-						${this._getFields()}
-					</div>
+<h1>${this.data.title}</h1>
+<form action="/" method="POST">
+<div>
+${this.getFields()}
+</div>
 
-					<div class="js-controls">
-					</div>
-				</form> `;
+<div class="js-controls">
+</div>
+</form> `;
     }
 
     /**
      * Вставить управляющие элементы в форму
      */
-    _installControls() {
-      let { controls = [] } = this.data;
+    installControls() {
+      const { controls = [] } = this.data;
 
       controls.forEach((data) => {
         const control = new Button({ text: data.text, attrs: data.attrs }).render();
@@ -96,4 +92,4 @@
 
   // export
   window.Form = Form;
-})();
+}());

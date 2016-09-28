@@ -1,4 +1,3 @@
-
 /* global document */
 /* eslint no-unused-vars: ["error", { "varsIgnorePattern": "Request" }]*/
 // В дальнейшем это будет разнесено по модулям, пока так пойдет :)

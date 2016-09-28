@@ -1,6 +1,4 @@
 (function () {
-  'use strict';
-
   class Button {
     constructor(options) {
       this.text = options.text;
@@ -29,4 +27,4 @@
 
   // export
   window.Button = Button;
-})();
+}());

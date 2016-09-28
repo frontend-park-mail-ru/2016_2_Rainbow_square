@@ -1,3 +1,4 @@
+/*
 const Form = window.Form;
 // ДЛЯ WEBPACK
 export const form = new Form({
@@ -36,3 +37,4 @@ export const form = new Form({
     ],
   },
 });
+*/

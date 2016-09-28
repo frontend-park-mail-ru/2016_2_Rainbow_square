@@ -1,4 +1,5 @@
 // ДЛЯ WEBPACK
+/*
 const formReg = new Form({
   el: document.createElement('div'),
   data: {
@@ -35,3 +36,4 @@ const formReg = new Form({
   },
 });
 export { formReg };
+*/

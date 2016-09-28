@@ -1,7 +1,8 @@
-(function () {
-  // import
-  const Button = window.Button;
+/* eslint no-unused-vars: ["error", { "varsIgnorePattern": "result" }]*/
 
+/* global technolibs */
+
+(function () {
   class Chat {
 
     /**
@@ -39,13 +40,13 @@
 <form class="js-chat-form">
 <textarea required class="chat__input" name="message" cols="30" rows="10"></textarea>
 <button name="name">
-	Отправить
+Отправить
 </button>
 </form>
     `;
     }
 
-    filter(str, rules = ['КЕК']) {
+    static filter(str, rules = ['КЕК']) {
       return '//TODO: реализовать filter';
     }
 
@@ -53,7 +54,7 @@
       const message = document.createElement('div');
       const email = document.createElement('div');
 
-      message.classList.add('chat__message');
+      this.message.classList.add('chat__message');
       email.classList.add('chat__email');
 
       if (isMy) {
@@ -106,7 +107,7 @@
     }
 
     // TODO вернуть данные формы
-    getFormData() {
+    static getFormData() {
       return {
         key: 'value',
       };
@@ -119,4 +120,4 @@
 
   // export
   window.Chat = Chat;
-})();
+}());
