@@ -17,8 +17,7 @@ function getRequest(url) {
   return xhr.responseText;
 }
 
-
-(function () {
+(function() {
   if (typeof window === 'object') {
     // import
     const Chat = window.Chat;
@@ -37,39 +36,39 @@ function getRequest(url) {
             name: 'username',
             type: 'text',
             placeholder: 'your name',
-            required: true,
+            required: true
           },
           {
             name: 'password',
             type: 'password',
             placeholder: 'password',
-            required: true,
-          },
+            required: true
+          }
         ],
         controls: [
           {
             text: 'sign in',
             attrs: {
               type: 'submit',
-              class: 'button2',
-            },
+              class: 'button2'
+            }
           },
           {
             text: 'Not registered yet?',
             attrs: {
               type: 'reset',  // спорно
-              class: 'button1',
-            },
-          },
-        ],
-      },
+              class: 'button1'
+            }
+          }
+        ]
+      }
     });
 
     const chat = new Chat({
-      el: document.createElement('div'),
+      el: document.createElement('div')
     });
 
-    form.on('submit', (event) => {
+    form.on('submit', event => {
       event.preventDefault();
 
       const formData = form.getFormData();
@@ -80,8 +79,8 @@ function getRequest(url) {
       console.log('Login!');
 
       chat.set({
-        username: formData.username,
-        //email: formData.email
+        username: formData.username
+        // email: formData.email
       }).render();
 
       chat.subscribe();
@@ -90,7 +89,7 @@ function getRequest(url) {
       chatPage.hidden = false;
     });
 
-    form.on('reset', (event) => {
+    form.on('reset', event => {
       event.preventDefault();
      // technolibs.request('/api/login', formData);
 
@@ -113,33 +112,33 @@ function getRequest(url) {
             name: 'email',
             type: 'email',
             placeholder: 'e-mail',
-            required: true,
+            required: true
           },
           {
             name: 'username',
             type: 'text',
             placeholder: 'your login',
-            required: true,
+            required: true
           },
           {
             name: 'password',
             type: 'password',
             placeholder: 'password',
-            required: true,
-          },
+            required: true
+          }
         ],
         controls: [
           {
             text: 'sign up',
             attrs: {
               type: 'submit',
-              class: 'button2',
-            },
-          },
-        ],
-      },
+              class: 'button2'
+            }
+          }
+        ]
+      }
     });
-    formReg.on('submit', (event) => {
+    formReg.on('submit', event => {
       event.preventDefault();
 
       const formData = form.getFormData();
@@ -152,4 +151,4 @@ function getRequest(url) {
     });
     regPage.appendChild(formReg.el);
   }
-}());
+})();

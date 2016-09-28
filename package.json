@@ -4,9 +4,7 @@
   "description": "",
   "main": "sevrer.js",
   "scripts": {
-    "test": "node test.js ",
-    "lintRoot": "./node_modules/.bin/eslint *.js",
-    "lintPublic": "./node_modules/.bin/eslint public/*.js",
+    "test": "node test.js && /node_modules/.bin/eslint *.js && ./node_modules/.bin/eslint \"public/**/*.js\"",
     "lintRootFix": "./node_modules/.bin/eslint *.js --fix",
     "lintPublicFix": "./node_modules/.bin/eslint \"public/**/*.js\" --fix"
   },
@@ -27,13 +25,14 @@
     "techno-gendoc": "0.4.1"
   },
   "devDependencies": {
+    "babel-core": "~5.1.10",
+    "babel-loader": "~5.0.0",
     "eslint": "3.5.0",
     "eslint-config-airbnb": "11.1.0",
+    "eslint-config-google": "^0.6.0",
     "eslint-plugin-import": "1.15.0",
     "eslint-plugin-jsx-a11y": "2.2.2",
     "eslint-plugin-react": "6.2.2",
-    "babel-core": "~5.1.10",
-    "webpack": "~1.8.4",
-    "babel-loader": "~5.0.0"
+    "webpack": "~1.8.4"
   }
 }

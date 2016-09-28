@@ -1,14 +1,13 @@
-/* eslint no-unused-vars: ["error", { "varsIgnorePattern": "result" }]*/
-
+/* eslint no-unused-vars: [2, { "args": "all", "varsIgnorePattern": "result", "argsIgnorePattern": "^_.+" }]*/
 /* global technolibs */
 
-(function () {
+(function() {
   class Chat {
 
     /**
      * Конструктор класса Chat
      */
-    constructor({ data = {}, el }) {
+    constructor({data = {}, el}) {
       this.data = data;
       this.el = el;
 
@@ -18,10 +17,7 @@
     render() {
       this.updateHtml1();
     }
-    /**
-     * Обновить данные компонента
-     * @param {object} data - данные компонента
-     */
+    // Обновить данные компонента
     set(data) {
       this.data = data;
 
@@ -31,22 +27,22 @@
     // eslint считает, что должна быть такая табуляция, лол
     updateHtml1() {
       this.el.innerHTML = `
-    <h3 id="jsTitle">Ты в чате, ${this.data.username}!</h3>
-<div id="jsMessages" class="chat">
-<div class="cssload-wrap">
-<div class="cssload-cssload-spinner"></div>
-</div>
-</div>
-<form class="js-chat-form">
-<textarea required class="chat__input" name="message" cols="30" rows="10"></textarea>
-<button name="name">
-Отправить
-</button>
-</form>
-    `;
+				<h3 id="jsTitle">Ты в чате, ${this.data.username}!</h3>
+				<div id="jsMessages" class="chat">
+					<div class="cssload-wrap">
+						<div class="cssload-cssload-spinner"></div>
+					</div>
+				</div>
+				<form class="js-chat-form">
+					<textarea required class="chat__input" name="message" cols="30" rows="10"></textarea>
+					<button name="name">
+						Отправить
+					</button>
+				</form>
+			`;
     }
 
-    static filter(str, rules = ['КЕК']) {
+    static filter(_str, _rules = ['КЕК']) {
       return '//TODO: реализовать filter';
     }
 
@@ -72,7 +68,7 @@
     onChat(form) {
       const data = {
         message: form.elements.message.value,
-        email: this.data.email,
+        email: this.data.email
       };
 
       const result = technolibs.request('/api/messages', data);
@@ -83,7 +79,7 @@
       const messages = this.el.querySelector('#jsMessages');
       messages.innerHTML = '';
 
-      items.forEach((item) => {
+      items.forEach(item => {
         const message = this.createMessage(item, item.email === this.data.email);
         messages.appendChild(message);
       });
@@ -91,12 +87,12 @@
     }
 
     subscribe() {
-      technolibs.onMessage((data) => {
+      technolibs.onMessage(data => {
         this.renderMessages(Object.keys(data).map(key => data[key]));
       });
 
       this.el.querySelector('.js-chat-form')
-          .addEventListener('submit', (event) => {
+          .addEventListener('submit', event => {
             event.preventDefault();
             this.onChat(event.target);
           });
@@ -109,7 +105,7 @@
     // TODO вернуть данные формы
     static getFormData() {
       return {
-        key: 'value',
+        key: 'value'
       };
     }
 
@@ -120,4 +116,4 @@
 
   // export
   window.Chat = Chat;
-}());
+})();

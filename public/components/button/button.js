@@ -1,4 +1,4 @@
-(function () {
+(function() {
   class Button {
     constructor(options) {
       this.text = options.text;
@@ -7,7 +7,7 @@
     }
 
     setAttrs(attrs) {
-      Object.keys(attrs).forEach((name) => {
+      Object.keys(attrs).forEach(name => {
         this.el.setAttribute(name, attrs[name]);
       });
     }
@@ -27,4 +27,4 @@
 
   // export
   window.Button = Button;
-}());
+})();

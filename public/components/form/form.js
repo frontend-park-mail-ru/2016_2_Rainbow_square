@@ -1,11 +1,11 @@
-(function () {
+(function() {
   // import
   const Button = window.Button;
   class Form {
-    /**
+    /*
      * Конструктор класса Form
      */
-    constructor(options = { data: {} }) {
+    constructor(options = {data: {}}) {
       this.data = options.data;
       this.el = options.el;
 
@@ -17,42 +17,44 @@
       this.installControls();
     }
 
-    /**
+    /*
      * Вернуть поля формы
      * @return {string}
      */
     getFields() {
-      const { fields = [] } = this.data;
+      const {fields = []} = this.data;
 
-      return fields.map((field) => {
+      return fields.map(field => {
         return `<input ${field.required ? 'required' : ''} placeholder="${field.placeholder}" type="${field.type}" name="${field.name}">`;
       }).join(' ');
     }
 
-    /**
+    /*
      * Обновить html компонента
      */
+    /*eslint-disable */
     updateHtml() {
-      this.el.innerHTML = `
-<h1>${this.data.title}</h1>
-<form action="/" method="POST">
-<div>
-${this.getFields()}
-</div>
+      ` <h1>${this.data.title}</h1> 
+        <form action="/" method="POST">
+          <div>
+          ${this.getFields()}
+          </div>
 
-<div class="js-controls">
-</div>
-</form> `;
+          <div class="js-controls">
+          </div>
+          </form>
+         `;
     }
+    /*eslint-enable */
 
     /**
      * Вставить управляющие элементы в форму
      */
     installControls() {
-      const { controls = [] } = this.data;
+      const {controls = []} = this.data;
 
-      controls.forEach((data) => {
-        const control = new Button({ text: data.text, attrs: data.attrs }).render();
+      controls.forEach(data => {
+        const control = new Button({text: data.text, attrs: data.attrs}).render();
         this.el.querySelector('.js-controls').appendChild(control.el);
       });
     }
@@ -66,7 +68,7 @@ ${this.getFields()}
       this.el.addEventListener(type, callback);
     }
 
-    /**
+    /*
      * Взять данные формы
      * @return {object}
      */
@@ -75,7 +77,7 @@ ${this.getFields()}
       const elements = form.elements;
       const fields = {};
 
-      Object.keys(elements).forEach((element) => {
+      Object.keys(elements).forEach(element => {
         const node = elements[element];
 
         if (!node.name || node.tagName.toLowerCase() !== 'input') {
@@ -92,4 +94,4 @@ ${this.getFields()}
 
   // export
   window.Form = Form;
-}());
+})();
