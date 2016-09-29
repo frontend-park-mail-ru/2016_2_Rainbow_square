@@ -43,7 +43,7 @@ exports.get = {
       "type": "integer",
       "in": "path",
       "required": true
-    },
+    }
   ],
 
   "responses": {
@@ -69,7 +69,7 @@ exports.put = {
       "type": "integer",
       "in": "path",
       "required": true
-    },
+    }
   ],
 
   "responses": {
@@ -95,7 +95,7 @@ exports.delete = {
       "type": "integer",
       "in": "path",
       "required": true
-    },
+    }
   ],
 
   "responses": {

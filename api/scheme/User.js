@@ -25,7 +25,7 @@ module.exports = {
       "type": "string",
       "minLength": 1,
       "maxLength": 50
-    },
+    }
   },
 
   "required": ["id", "email", "login", "password"]

@@ -37,8 +37,7 @@ exports.post = {
       "headers": {
         "content-type": "application/json"
       },
-      "validator": function (res) {
-
+      "validator": function(res) {
         if (typeof res.id !== 'number') {
           return 'не корректный id';
         }
@@ -83,8 +82,7 @@ exports.get = {
       "headers": {
         "content-type": "application/json"
       },
-      "validator": function (res) {
-
+      "validator": function(res) {
         if (Array.isArray(res)) {
           return true;
         }
@@ -93,6 +91,5 @@ exports.get = {
       }
     }
   }]
-
 
 };

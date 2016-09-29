@@ -26,8 +26,7 @@ exports.get = {
       "data": {
         "id": Math.floor(Math.random() * 10000)
       },
-      "validator": function (res) {
-
+      "validator": function(res) {
         if (typeof res.id !== 'number') {
           return 'не корректный id';
         }
@@ -78,8 +77,7 @@ exports.post = {
       "headers": {
         "content-type": "application/json"
       },
-      "validator": function (res) {
-
+      "validator": function(res) {
         if (typeof res.id !== 'number') {
           return 'не корректный id';
         }

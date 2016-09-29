@@ -31,19 +31,19 @@
     // eslint считает, что должна быть такая табуляция, лол
     updateHtml1() {
       this.el.innerHTML = `
-                <h3 id="jsTitle">Ты в чате, ${this.data.login}!</h3>
-				<div id="jsMessages" class="chat">
-					<div class="cssload-wrap">
-						<div class="cssload-cssload-spinner"></div>
-					</div>
-				</div>
-				<form class="js-chat-form">
-					<textarea required class="chat__input" name="message" cols="30" rows="10"></textarea>
-					<button name="name">
+      <h3 id="jsTitle">Ты в чате, ${this.data.login}!</h3>
+	  <div id="jsMessages" class="chat">
+		<div class="cssload-wrap">
+		   <div class="cssload-cssload-spinner"></div>
+		</div>
+	  </div>
+	  <form class="js-chat-form">
+	     <textarea required class="chat__input" name="message" cols="30" rows="10"></textarea>
+		 <button name="name">
 						Отправить
-					</button>
-				</form>
-			`;
+		 </button>
+		 </form>
+	  `;
     }
 
     static filter(_str, _rules = ['КЕК']) {
@@ -77,7 +77,6 @@
       };
 
       const result = technolibs.request('https://technofront-f958d.firebaseio.com/messages.json', data);
-      // const result = technolibs.request('/api/messages', data);
       form.reset();
     }
 
