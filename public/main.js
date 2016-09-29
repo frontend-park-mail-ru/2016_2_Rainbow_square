@@ -2,12 +2,13 @@
 /* eslint no-unused-vars: ["error", { "varsIgnorePattern": "Request" }]*/
 // В дальнейшем это будет разнесено по модулям, пока так пойдет :)
 
+// возвращает XML
 function jsonRequest(url, data) {
   const temp = new XMLHttpRequest();
   temp.open('POST', url, false);
   temp.setRequestHeader('Content-Type', 'application/json');
   temp.send(JSON.stringify(data));
-  return temp.responseText;
+  return temp;
 }
 
 function getRequest(url) {
@@ -33,7 +34,7 @@ function getRequest(url) {
         title: 'Welcome!',
         fields: [
           {
-            name: 'username',
+            name: 'login',
             type: 'text',
             placeholder: 'your name',
             required: true
@@ -72,26 +73,28 @@ function getRequest(url) {
       event.preventDefault();
 
       const formData = form.getFormData();
-     // technolibs.request('/api/login', formData);
+      // technolibs.request('/api/login', formData);
       const result = jsonRequest('https://rainbow-square-backend.herokuapp.com/api/session/', formData);
-      const obj = JSON.parse(result);
-      console.log(obj);
-      console.log('Login!');
+      /*eslint-disable */
+      if (result.status === 400) {
+        window.alert("Логин или пароль не верны :(");
+      } /*eslint-enable*/ else {
+        const obj = JSON.parse(result.responseText);
+        chat.set({
+          login: formData.login,
+         // email: formData.username
+        }).render();
 
-      chat.set({
-        username: formData.username,
-        email: formData.username
-      }).render();
+        chat.subscribe();
 
-      chat.subscribe();
-
-      loginPage.hidden = true;
-      chatPage.hidden = false;
+        loginPage.hidden = true;
+        chatPage.hidden = false;
+      }
     });
 
     form.on('reset', event => {
       event.preventDefault();
-     // technolibs.request('/api/login', formData);
+      // technolibs.request('/api/login', formData);
 
       loginPage.hidden = true;
       regPage.hidden = false;
@@ -115,7 +118,7 @@ function getRequest(url) {
             required: true
           },
           {
-            name: 'username',
+            name: 'login',
             type: 'text',
             placeholder: 'your login',
             required: true
@@ -143,10 +146,14 @@ function getRequest(url) {
 
       const formData = formReg.getFormData();
       const result = jsonRequest('https://rainbow-square-backend.herokuapp.com/api/user/', formData);
-      const obj = JSON.parse(result);
-      console.log(obj);
-      console.log('Registration!');
-      regPage.hidden = true;
+      /*eslint-disable */
+      if (result.status === 400) {
+        window.alert("Такой пользователь уже существует(");
+      } else {
+        window.alert("Вы зарегестрированы!");
+        const obj = JSON.parse(result.responseText); /*eslint-enable */
+        regPage.hidden = true;
+      }
     });
     regPage.appendChild(formReg.el);
   }
