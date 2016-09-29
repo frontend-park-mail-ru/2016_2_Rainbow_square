@@ -4,7 +4,7 @@ const plural = require('./public/testFunc').plural;
 const filter = require('./public/testFunc').filter;
 
 assert.equal(hello('Test'), 'Привет, Test');
-const NUM_BASE = 10;
+const MAGIC_CONST = 10;
 const languageEn = {};
 languageEn.first = [function notException(number) {
   return languageEn.first.includes(number);
@@ -15,12 +15,12 @@ languageEn.last = [function notException() {
 
 const languageRus = {};
 languageRus.first = [function notException(number) {
-  if (number % 100 === 11 || !languageRus.first.includes(number % NUM_BASE)) return false;
+  if (number % 100 === 11 || !languageRus.first.includes(number % MAGIC_CONST)) return false;
   return true;
 }, 1, 'клик'];
 languageRus.second = [function notException(number) {
   if (number % 100 === 12 || number % 100 === 13 || number % 100 === 14 ||
-      !languageRus.second.includes(number % NUM_BASE)) return false;
+         !languageRus.second.includes(number % MAGIC_CONST)) return false;
   return true;
 }, 2, 3, 4, 'клика'];
 languageRus.last = [function notException() {

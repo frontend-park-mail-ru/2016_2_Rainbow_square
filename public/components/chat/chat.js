@@ -1,4 +1,5 @@
-/* eslint no-unused-vars: [2, { "args": "all", "varsIgnorePattern": "result", "argsIgnorePattern": "^_.+" }]*/
+/* eslint no-unused-vars:
+ [2, { "args": "all", "varsIgnorePattern": "_*", "argsIgnorePattern": "_*" }] */
 /* global technolibs */
 
 (function() {
@@ -17,7 +18,10 @@
     render() {
       this.updateHtml1();
     }
-    // Обновить данные компонента
+    /*
+     * Обновить данные компонента
+     * @param {object} data - данные компонента
+     */
     set(data) {
       this.data = data;
 
@@ -27,19 +31,19 @@
     // eslint считает, что должна быть такая табуляция, лол
     updateHtml1() {
       this.el.innerHTML = `
-				<h3 id="jsTitle">Ты в чате, ${this.data.username}!</h3>
-				<div id="jsMessages" class="chat">
-					<div class="cssload-wrap">
-						<div class="cssload-cssload-spinner"></div>
-					</div>
-				</div>
-				<form class="js-chat-form">
-					<textarea required class="chat__input" name="message" cols="30" rows="10"></textarea>
-					<button name="name">
-						Отправить
-					</button>
-				</form>
-			`;
+    <h3 id="jsTitle">Ты в чате, ${this.data.username}!</h3>
+<div id="jsMessages" class="chat">
+<div class="cssload-wrap">
+<div class="cssload-cssload-spinner"></div>
+</div>
+</div>
+<form class="js-chat-form">
+<textarea required class="chat__input" name="message" cols="30" rows="10"></textarea>
+<button name="name">
+Отправить
+</button>
+</form>
+    `;
     }
 
     static filter(_str, _rules = ['КЕК']) {

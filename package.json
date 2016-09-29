@@ -4,7 +4,9 @@
   "description": "",
   "main": "sevrer.js",
   "scripts": {
-    "test": "node test.js && /node_modules/.bin/eslint *.js && ./node_modules/.bin/eslint \"public/**/*.js\"",
+    "test": "node test.js ",
+    "lintRoot": "./node_modules/.bin/eslint *.js",
+    "lintPublic": "./node_modules/.bin/eslint public/*.js",
     "lintRootFix": "./node_modules/.bin/eslint *.js --fix",
     "lintPublicFix": "./node_modules/.bin/eslint \"public/**/*.js\" --fix"
   },

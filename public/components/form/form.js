@@ -29,25 +29,23 @@
       }).join(' ');
     }
 
-    /*
+    /**
      * Обновить html компонента
      */
-    /*eslint-disable */
     updateHtml() {
-      ` <h1>${this.data.title}</h1> 
-        <form action="/" method="POST">
-          <div>
-          ${this.getFields()}
-          </div>
-
-          <div class="js-controls">
-          </div>
-          </form>
-         `;
+      this.el.innerHTML = `
+                <form>
+					<h1>${this.data.title}</h1>
+					<div>
+						${this.getFields()}
+					</div>
+					<div class="js-controls">
+					</div>
+				<form>
+			`;
     }
-    /*eslint-enable */
 
-    /**
+    /*
      * Вставить управляющие элементы в форму
      */
     installControls() {
@@ -59,7 +57,7 @@
       });
     }
 
-    /**
+    /*
      * Подписка на событие
      * @param {string} type - имя события
      * @param {function} callback - коллбек

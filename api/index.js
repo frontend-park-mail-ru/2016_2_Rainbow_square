@@ -9,16 +9,16 @@ module.exports = {
   'schemes': ['http'],
   'host': 'http://localhost:3000',
 
-  paths: {
-    '/messages': require('./resources/messages'),
-    '/session': require('./resources/session'),
-    '/user': require('./resources/user'),
-  },
+	                                        paths: {
+		                                        '/messages': require('./resources/messages'),
+		                                        '/session': require('./resources/session'),
+		                                        '/user': require('./resources/user'),
+	},
 
-  definitions: {
-    Message: require('./scheme/Message'),
-    Session: require('./scheme/Session'),
-    User: require('./scheme/User'),
-  },
+	                                        definitions: {
+		                                        Message: require('./scheme/Message'),
+		                                        Session: require('./scheme/Session'),
+		                                        User: require('./scheme/User'),
+	},
 
 };
