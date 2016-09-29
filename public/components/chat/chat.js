@@ -54,7 +54,7 @@
       const message = document.createElement('div');
       const email = document.createElement('div');
 
-      this.message.classList.add('chat__message');
+      message.classList.add('chat__message');
       email.classList.add('chat__email');
 
       if (isMy) {
@@ -71,11 +71,13 @@
 
     onChat(form) {
       const data = {
+        time: Date.now(),
         message: form.elements.message.value,
         email: this.data.email
       };
 
-      const result = technolibs.request('/api/messages', data);
+      const result = technolibs.request('https://technofront-f958d.firebaseio.com/messages.json', data);
+      // const result = technolibs.request('/api/messages', data);
       form.reset();
     }
 

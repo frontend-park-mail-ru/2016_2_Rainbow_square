@@ -79,8 +79,8 @@ function getRequest(url) {
       console.log('Login!');
 
       chat.set({
-        username: formData.username
-        // email: formData.email
+        username: formData.username,
+        email: formData.username
       }).render();
 
       chat.subscribe();
@@ -141,8 +141,7 @@ function getRequest(url) {
     formReg.on('submit', event => {
       event.preventDefault();
 
-      const formData = form.getFormData();
-     // technolibs.request('/api/login', formData);
+      const formData = formReg.getFormData();
       const result = jsonRequest('https://rainbow-square-backend.herokuapp.com/api/user/', formData);
       const obj = JSON.parse(result);
       console.log(obj);

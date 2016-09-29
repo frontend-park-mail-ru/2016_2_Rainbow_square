@@ -82,7 +82,7 @@
           return;
         }
 
-        fields[name] = node.value;
+        fields[node.name] = node.value;
       });
 
       return fields;
