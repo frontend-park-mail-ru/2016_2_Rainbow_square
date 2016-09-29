@@ -78,10 +78,10 @@ function getRequest(url) {
       /*eslint-disable */
       if (result.status === 400) {
         window.alert("Логин или пароль не верны :(");
-      } /*eslint-enable*/ else {
-        const obj = JSON.parse(result.responseText);
+      }  else {
+        const obj = JSON.parse(result.responseText); /*eslint-enable*/
         chat.set({
-          login: formData.login,
+          login: formData.login
          // email: formData.username
         }).render();
 
@@ -151,8 +151,9 @@ function getRequest(url) {
         window.alert("Такой пользователь уже существует(");
       } else {
         window.alert("Вы зарегестрированы!");
-        const obj = JSON.parse(result.responseText); /*eslint-enable */
+        const Request = JSON.parse(result.responseText);
         regPage.hidden = true;
+        /*eslint-enable */
       }
     });
     regPage.appendChild(formReg.el);

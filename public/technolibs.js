@@ -46,9 +46,9 @@ const technolibs = {
 
     return new Promise((resolve, reject) => {
       require('request').post('https://technofront-f958d.firebaseio.com/messages.json',
-        {
-          form: JSON.stringify(body)
-        },
+          {
+            form: JSON.stringify(body)
+          },
           (err, httpResponse, body) => {
             if (err) {
               return reject(err);
