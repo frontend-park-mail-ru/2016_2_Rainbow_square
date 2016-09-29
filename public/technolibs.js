@@ -43,7 +43,7 @@ const technolibs = {
     let body = Object.assign({
       time: Date.now()
     }, data);
-
+    /*eslint-disable */
     return new Promise((resolve, reject) => {
       require('request').post('https://technofront-f958d.firebaseio.com/messages.json',
           {
@@ -56,7 +56,7 @@ const technolibs = {
 
             resolve(body);
           });
-    }).catch(err => console.log(err));
+    }).catch(err => console.log(err));  /*eslint-enable */
   },
 
   colorHash(str) {

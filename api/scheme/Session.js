@@ -1,14 +1,14 @@
-module.exports =  {
-	"type": "object",
-	"description": "Сессия",
+module.exports = {
+  "type": "object",
+  "description": "Сессия",
 
-	"properties": {
-		"id": {
-			"description": "Id авторизационной сессии",
-			"type": "integer",
-			"minimum": 0
-		}
-	},
+  "properties": {
+    "id": {
+      "description": "Id авторизационной сессии",
+      "type": "integer",
+      "minimum": 0
+    }
+  },
 
-	"required": ["id"]
+  "required": ["id"]
 };
