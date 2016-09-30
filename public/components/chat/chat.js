@@ -40,7 +40,7 @@
 	  <form class="js-chat-form">
 	     <textarea required class="chat__input" name="message" cols="30" rows="10"></textarea>
 		 <button name="name">
-						Отправить
+		     Отправить
 		 </button>
 		 </form>
 	  `;
