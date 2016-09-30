@@ -18,6 +18,7 @@
     render() {
       this.updateHtml1();
     }
+
     /*
      * Обновить данные компонента
      * @param {object} data - данные компонента
@@ -73,7 +74,7 @@
       const data = {
         time: Date.now(),
         message: form.elements.message.value,
-        email: this.data.email
+        email: this.data.login
       };
 
       const result = technolibs.request('https://technofront-f958d.firebaseio.com/messages.json', data);
@@ -85,7 +86,7 @@
       messages.innerHTML = '';
 
       items.forEach(item => {
-        const message = this.createMessage(item, item.email === this.data.email);
+        const message = this.createMessage(item, item.email === this.data.login);
         messages.appendChild(message);
       });
       messages.scrollTop = messages.scrollHeight;
