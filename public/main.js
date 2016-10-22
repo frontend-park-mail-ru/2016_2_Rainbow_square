@@ -11,6 +11,7 @@
     (new Router)
     .addRoute('/mainMenu', MainMenuView)
     .addRoute('/login', LoginView)
+    .addRoute('/register', RegisterView)
     .addRoute('/singlePlayer', SinglePlayerView)
     .addRoute('/', MainView)
     .start();

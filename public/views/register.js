@@ -3,7 +3,7 @@
 
   const View = window.View;
 
-  class LoginView extends View {
+  class RegisterView extends View {
     constructor(options = {}) {
       super(options);
       this._init();
@@ -14,31 +14,30 @@
       let container = document.querySelector('.container');
       this._form = new Form({
         data: {
+          title: 'Registration',
           fields: [
             {
+              name: 'email',
+              type: 'email',
+              placeholder: 'Email'
+            },
+            {
               name: 'username',
+              type: 'text',
               placeholder: 'Username'
             },
             {
               name: 'password',
-              placeholder: 'Password',
-              type: 'password'
+              type: 'password',
+              placeholder: 'Password'
             }
           ],
-          title: 'Вход',
           controls: [
             {
-              text: 'Войти',
+              text: 'Sign up',
               attrs: {
                 type: 'submit',
-                class: 'login__submit'
-              }
-            },
-            {
-              text: 'Регистрация',
-              attrs: {
-                type: 'reset',
-                class: 'login__register'
+                class: 'register__submit'
               }
             }
           ]
@@ -49,30 +48,24 @@
       this._form.on('submit', event => {
         event.preventDefault();
         const formData = this._form.getFormData();
-        const result = jsonRequest('https://rainbow-square-backend.herokuapp.com/api/session/', formData);
+        const result = jsonRequest('https://rainbow-square-backend.herokuapp.com/api/user/', formData);
         if (result.status === 400) {
-          window.alert("Логин или пароль не верны");
+          window.alert("Такой пользователь уже существует(");
         } else {
-          const obj = JSON.parse(result.responseText);
-          window.userinfo = obj;
-          this.router.go('/menu');
+          window.alert("Вы зарегистрированы!");
+          const Request = JSON.parse(result.responseText);
+          this._router.go('/menu');
         }
-      });
-
-      this._form.on('reset', event => {
-        event.preventDefault();
-        this.router.go('/register');
       });
     }
 
     resume(options = {}) {
-      console.log('resume at /login');
       this.show();
     }
   }
 
 
   // export
-  window.LoginView = LoginView;
+  window.RegisterView = RegisterView;
 
 })();

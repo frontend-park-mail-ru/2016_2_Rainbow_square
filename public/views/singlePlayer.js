@@ -6,7 +6,7 @@
 	class SinglePlayerView extends View {
 		constructor(options = {}) {
 			super(options);
-			this._el = document.querySelector('.container');
+			this._el = new Block('div');
 			this.hide();
 		}
 

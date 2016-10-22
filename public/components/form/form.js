@@ -29,7 +29,7 @@
 		 * Обнуляем форму
 		 */
 		reset() {
-			this._el.querySelector('form').reset();
+			this._el.reset();
 		}
 
 		/**
@@ -46,7 +46,7 @@
 			let {controls = []} = this.data;
 
 			controls.forEach(data => {
-				let control = new Button({text: data.text});
+				let control = new Button(data);
 				this._el.querySelector('.js-controls').appendChild(control._get());
 			});
 		}
@@ -56,7 +56,7 @@
 		 * @return {object}
 		 */
 		getFormData() {
-			let form = this._el.querySelector('form');
+			let form = this._el;
 			let elements = form.elements;
 			let fields = {};
 
