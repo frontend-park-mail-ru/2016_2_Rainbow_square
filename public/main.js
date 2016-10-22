@@ -2,14 +2,18 @@
 	'use strict';
 
 	const Router = window.Router;
-	const ChatView = window.ChatView;
+	const MainMenuView = window.MainMenuView;
+	const LoginView = window.LoginView;
+	const SinglePlayerView = window.SinglePlayerView;
 	const MainView = window.MainView;
 
-	(new Router)
-		.addRoute('/mainMenu', MainMenuView)
-		.addRoute('/login', LoginView)
-		.addRoute('/singlePlayer', SinglePlayerView)
-		.addRoute('/', MainView)
-		.start();
+  window.onload = function () {
+    (new Router)
+    .addRoute('/mainMenu', MainMenuView)
+    .addRoute('/login', LoginView)
+    .addRoute('/singlePlayer', SinglePlayerView)
+    .addRoute('/', MainView)
+    .start();
+  }
 
 })();
