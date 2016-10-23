@@ -51,6 +51,15 @@
 		_get() {
 			return this._el;
 		}
+
+    classAdd(name) {
+      this._el.classList.add(name);
+    }
+
+    classRemove(name) {
+      this._el.classList.remove(name);
+    }
+
 	}
 
 	//   export
