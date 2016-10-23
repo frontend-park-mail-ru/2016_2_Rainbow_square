@@ -1,81 +1,77 @@
-(function () {
-	'use strict';
+import Block from "../block/block"
+import  Button from "../button/button"
 
-	// import
-	const Block = window.Block;
-	const Button = window.Button;
+// import
 
-	class Form extends Block {
 
-		/**
-		 * Конструктор класса Form
-		 */
-		constructor(options = {data: {}}) {
-			super('form');
-			this.template = window.fest['form/form.tmpl'];
-			this.data = options.data;
-			this.render();
-		}
+export  default  class Form extends Block {
 
-		/**
-		 * Обновляем HTML
-		 */
-		render() {
-			this._updateHtml();
-			this._installControls();
-		}
+  /**
+   * Конструктор класса Form
+   */
+  constructor(options = {data: {}}) {
+    super('form');
+    this.template = window.fest['form/form.tmpl'];
+    this.data = options.data;
+    this.render();
+  }
 
-		/**
-		 * Обнуляем форму
-		 */
-		reset() {
-			this._el.reset();
-		}
+  /**
+   * Обновляем HTML
+   */
+  render() {
+    this._updateHtml();
+    this._installControls();
+  }
 
-		/**
-		 * Обновить html компонента
-		 */
-		_updateHtml() {
-			this._el.innerHTML = this.template(this.data);
-		}
+  /**
+   * Обнуляем форму
+   */
+  reset() {
+    this._el.reset();
+  }
 
-		/**
-		 * Вставить управляющие элементы в форму
-		 */
-		_installControls() {
-			let {controls = []} = this.data;
+  /**
+   * Обновить html компонента
+   */
+  _updateHtml() {
+    this._el.innerHTML = this.template(this.data);
+  }
 
-			controls.forEach(data => {
-				let control = new Button(data);
-				this._el.querySelector('.js-controls').appendChild(control._get());
-			});
-		}
+  /**
+   * Вставить управляющие элементы в форму
+   */
+  _installControls() {
+    let {controls = []} = this.data;
 
-		/**
-		 * Взять данные формы
-		 * @return {object}
-		 */
-		getFormData() {
-			let form = this._el;
-			let elements = form.elements;
-			let fields = {};
+    controls.forEach(data => {
+      let control = new Button(data);
+      this._el.querySelector('.js-controls').appendChild(control._get());
+    });
+  }
 
-			Object.keys(elements).forEach(element => {
-				let name = elements[element].name;
-				let value = elements[element].value;
+  /**
+   * Взять данные формы
+   * @return {object}
+   */
+  getFormData() {
+    let form = this._el;
+    let elements = form.elements;
+    let fields = {};
 
-				if (!name) {
-					return;
-				}
+    Object.keys(elements).forEach(element => {
+      let name = elements[element].name;
+      let value = elements[element].value;
 
-				fields[name] = value;
-			});
+      if (!name) {
+        return;
+      }
 
-			return fields;
-		}
+      fields[name] = value;
+    });
 
-	}
+    return fields;
+  }
 
-	//export
-	window.Form = Form;
-})();
+}
+

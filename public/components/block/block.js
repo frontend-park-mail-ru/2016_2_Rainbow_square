@@ -1,7 +1,4 @@
-(function () {
-	'use strict';
-
-	class Block {
+export default class Block {
 		constructor(name, options = {}) {
 			this._el = document.createElement(name);
 			this.setAttrs(options.attrs);
@@ -61,7 +58,3 @@
     }
 
 	}
-
-	//   export
-	window.Block = Block;
-})();
