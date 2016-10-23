@@ -85,6 +85,10 @@
 	
 	var _form2 = _interopRequireDefault(_form);
 	
+	var _jsonRequest = __webpack_require__(106);
+	
+	var _jsonRequest2 = _interopRequireDefault(_jsonRequest);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var LoginView = function (_View) {
@@ -138,7 +142,7 @@
 	      this._form.on('submit', function (event) {
 	        event.preventDefault();
 	        var formData = _this2._form.getFormData();
-	        var result = jsonRequest('https://rainbow-square-backend.herokuapp.com/api/session/', formData);
+	        var result = (0, _jsonRequest2.default)('https://rainbow-square-backend.herokuapp.com/api/session/', formData);
 	        if (result.status === 400) {
 	          window.alert("Логин или пароль не верны");
 	        } else {
@@ -2735,7 +2739,7 @@
 /* 105 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -2765,6 +2769,14 @@
 	
 	var _view2 = _interopRequireDefault(_view);
 	
+	var _form = __webpack_require__(92);
+	
+	var _form2 = _interopRequireDefault(_form);
+	
+	var _jsonRequest = __webpack_require__(106);
+	
+	var _jsonRequest2 = _interopRequireDefault(_jsonRequest);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var RegisterView = function (_View) {
@@ -2782,12 +2794,12 @@
 	  }
 	
 	  (0, _createClass3.default)(RegisterView, [{
-	    key: '_init',
+	    key: "_init",
 	    value: function _init() {
 	      var _this2 = this;
 	
 	      var container = document.querySelector('.container');
-	      this._form = new Form({
+	      this._form = new _form2.default({
 	        data: {
 	          title: 'Registration',
 	          fields: [{
@@ -2817,7 +2829,7 @@
 	      this._form.on('submit', function (event) {
 	        event.preventDefault();
 	        var formData = _this2._form.getFormData();
-	        var result = jsonRequest('https://rainbow-square-backend.herokuapp.com/api/user/', formData);
+	        var result = (0, _jsonRequest2.default)('https://rainbow-square-backend.herokuapp.com/api/user/', formData);
 	        if (result.status === 400) {
 	          window.alert("Такой пользователь уже существует(");
 	        } else {
@@ -2828,7 +2840,7 @@
 	      });
 	    }
 	  }, {
-	    key: 'resume',
+	    key: "resume",
 	    value: function resume() {
 	      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 	
@@ -2839,6 +2851,48 @@
 	}(_view2.default);
 	
 	exports.default = RegisterView;
+
+/***/ },
+/* 106 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _stringify = __webpack_require__(107);
+	
+	var _stringify2 = _interopRequireDefault(_stringify);
+	
+	exports.default = jsonRequest;
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function jsonRequest(url, data) {
+	  var temp = new XMLHttpRequest();
+	  temp.open('POST', url, false);
+	  temp.setRequestHeader('Content-Type', 'application/json');
+	  temp.send((0, _stringify2.default)(data));
+	  return temp;
+	}
+
+/***/ },
+/* 107 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(108), __esModule: true };
+
+/***/ },
+/* 108 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var core  = __webpack_require__(15)
+	  , $JSON = core.JSON || (core.JSON = {stringify: JSON.stringify});
+	module.exports = function stringify(it){ // eslint-disable-line no-unused-vars
+	  return $JSON.stringify.apply($JSON, arguments);
+	};
 
 /***/ }
 /******/ ]);

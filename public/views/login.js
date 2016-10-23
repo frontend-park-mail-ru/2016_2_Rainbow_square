@@ -1,5 +1,6 @@
 import View from "../modules/view"
 import  Form from  "../components/form/form"
+import  jsonRequest from "../modules/jsonRequest"
 
 export  default  class LoginView extends View {
   constructor(options = {}) {

@@ -85,6 +85,10 @@
 	
 	var _form2 = _interopRequireDefault(_form);
 	
+	var _jsonRequest = __webpack_require__(106);
+	
+	var _jsonRequest2 = _interopRequireDefault(_jsonRequest);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var LoginView = function (_View) {
@@ -138,7 +142,7 @@
 	      this._form.on('submit', function (event) {
 	        event.preventDefault();
 	        var formData = _this2._form.getFormData();
-	        var result = jsonRequest('https://rainbow-square-backend.herokuapp.com/api/session/', formData);
+	        var result = (0, _jsonRequest2.default)('https://rainbow-square-backend.herokuapp.com/api/session/', formData);
 	        if (result.status === 400) {
 	          window.alert("Логин или пароль не верны");
 	        } else {
@@ -2216,6 +2220,59 @@
 	}(_block2.default);
 	
 	exports.default = Button;
+
+/***/ },
+/* 95 */,
+/* 96 */,
+/* 97 */,
+/* 98 */,
+/* 99 */,
+/* 100 */,
+/* 101 */,
+/* 102 */,
+/* 103 */,
+/* 104 */,
+/* 105 */,
+/* 106 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _stringify = __webpack_require__(107);
+	
+	var _stringify2 = _interopRequireDefault(_stringify);
+	
+	exports.default = jsonRequest;
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function jsonRequest(url, data) {
+	  var temp = new XMLHttpRequest();
+	  temp.open('POST', url, false);
+	  temp.setRequestHeader('Content-Type', 'application/json');
+	  temp.send((0, _stringify2.default)(data));
+	  return temp;
+	}
+
+/***/ },
+/* 107 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(108), __esModule: true };
+
+/***/ },
+/* 108 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var core  = __webpack_require__(15)
+	  , $JSON = core.JSON || (core.JSON = {stringify: JSON.stringify});
+	module.exports = function stringify(it){ // eslint-disable-line no-unused-vars
+	  return $JSON.stringify.apply($JSON, arguments);
+	};
 
 /***/ }
 /******/ ]);

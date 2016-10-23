@@ -1803,9 +1803,302 @@
 	});
 
 /***/ },
-/* 92 */,
-/* 93 */,
-/* 94 */,
+/* 92 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _keys = __webpack_require__(89);
+	
+	var _keys2 = _interopRequireDefault(_keys);
+	
+	var _getPrototypeOf = __webpack_require__(2);
+	
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+	
+	var _classCallCheck2 = __webpack_require__(28);
+	
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+	
+	var _createClass2 = __webpack_require__(29);
+	
+	var _createClass3 = _interopRequireDefault(_createClass2);
+	
+	var _possibleConstructorReturn2 = __webpack_require__(33);
+	
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+	
+	var _inherits2 = __webpack_require__(80);
+	
+	var _inherits3 = _interopRequireDefault(_inherits2);
+	
+	var _block = __webpack_require__(93);
+	
+	var _block2 = _interopRequireDefault(_block);
+	
+	var _button = __webpack_require__(94);
+	
+	var _button2 = _interopRequireDefault(_button);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	// import
+	
+	
+	var Form = function (_Block) {
+	  (0, _inherits3.default)(Form, _Block);
+	
+	  /**
+	   * Конструктор класса Form
+	   */
+	  function Form() {
+	    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { data: {} };
+	    (0, _classCallCheck3.default)(this, Form);
+	
+	    var _this = (0, _possibleConstructorReturn3.default)(this, (Form.__proto__ || (0, _getPrototypeOf2.default)(Form)).call(this, 'form'));
+	
+	    _this.template = window.fest['form/form.tmpl'];
+	    _this.data = options.data;
+	    _this.render();
+	    return _this;
+	  }
+	
+	  /**
+	   * Обновляем HTML
+	   */
+	
+	
+	  (0, _createClass3.default)(Form, [{
+	    key: "render",
+	    value: function render() {
+	      this._updateHtml();
+	      this._installControls();
+	    }
+	
+	    /**
+	     * Обнуляем форму
+	     */
+	
+	  }, {
+	    key: "reset",
+	    value: function reset() {
+	      this._el.reset();
+	    }
+	
+	    /**
+	     * Обновить html компонента
+	     */
+	
+	  }, {
+	    key: "_updateHtml",
+	    value: function _updateHtml() {
+	      this._el.innerHTML = this.template(this.data);
+	    }
+	
+	    /**
+	     * Вставить управляющие элементы в форму
+	     */
+	
+	  }, {
+	    key: "_installControls",
+	    value: function _installControls() {
+	      var _this2 = this;
+	
+	      var _data$controls = this.data.controls;
+	      var controls = _data$controls === undefined ? [] : _data$controls;
+	
+	
+	      controls.forEach(function (data) {
+	        var control = new _button2.default(data);
+	        _this2._el.querySelector('.js-controls').appendChild(control._get());
+	      });
+	    }
+	
+	    /**
+	     * Взять данные формы
+	     * @return {object}
+	     */
+	
+	  }, {
+	    key: "getFormData",
+	    value: function getFormData() {
+	      var form = this._el;
+	      var elements = form.elements;
+	      var fields = {};
+	
+	      (0, _keys2.default)(elements).forEach(function (element) {
+	        var name = elements[element].name;
+	        var value = elements[element].value;
+	
+	        if (!name) {
+	          return;
+	        }
+	
+	        fields[name] = value;
+	      });
+	
+	      return fields;
+	    }
+	  }]);
+	  return Form;
+	}(_block2.default);
+	
+	exports.default = Form;
+
+/***/ },
+/* 93 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _keys = __webpack_require__(89);
+	
+	var _keys2 = _interopRequireDefault(_keys);
+	
+	var _classCallCheck2 = __webpack_require__(28);
+	
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+	
+	var _createClass2 = __webpack_require__(29);
+	
+	var _createClass3 = _interopRequireDefault(_createClass2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Block = function () {
+	  function Block(name) {
+	    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+	    (0, _classCallCheck3.default)(this, Block);
+	
+	    this._el = document.createElement(name);
+	    this.setAttrs(options.attrs);
+	    this._options = options;
+	  }
+	
+	  (0, _createClass3.default)(Block, [{
+	    key: "setAttrs",
+	    value: function setAttrs() {
+	      var _this = this;
+	
+	      var attrs = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	
+	      (0, _keys2.default)(attrs).forEach(function (name) {
+	        _this._el.setAttribute(name, attrs[name]);
+	      });
+	    }
+	  }, {
+	    key: "renderTo",
+	    value: function renderTo(element) {
+	      element.appendChild(this._el);
+	    }
+	  }, {
+	    key: "append",
+	    value: function append(element) {
+	      if (element instanceof Block) {
+	        this._el.appendChild(element._get());
+	      } else {
+	        this._el.appendChild(element);
+	      }
+	    }
+	
+	    /**
+	     * Подписка на событие
+	     * @param {string} type - имя события
+	     * @param {function} callback - коллбек
+	     */
+	
+	  }, {
+	    key: "on",
+	    value: function on(type, callback) {
+	      this._el.addEventListener(type, callback);
+	    }
+	
+	    /**
+	     * Отписка от события
+	     * @param {string} type - имя события
+	     * @param {function} callback - коллбек
+	     */
+	
+	  }, {
+	    key: "stop",
+	    value: function stop(type, callback) {
+	      this._el.removeEventListener(type, callback);
+	    }
+	  }, {
+	    key: "toString",
+	    value: function toString() {
+	      return this._el.outerHTML;
+	    }
+	  }, {
+	    key: "_get",
+	    value: function _get() {
+	      return this._el;
+	    }
+	  }]);
+	  return Block;
+	}();
+	
+	exports.default = Block;
+
+/***/ },
+/* 94 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _getPrototypeOf = __webpack_require__(2);
+	
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+	
+	var _classCallCheck2 = __webpack_require__(28);
+	
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+	
+	var _possibleConstructorReturn2 = __webpack_require__(33);
+	
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+	
+	var _inherits2 = __webpack_require__(80);
+	
+	var _inherits3 = _interopRequireDefault(_inherits2);
+	
+	var _block = __webpack_require__(93);
+	
+	var _block2 = _interopRequireDefault(_block);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Button = function (_Block) {
+	  (0, _inherits3.default)(Button, _Block);
+	
+	  function Button(options) {
+	    (0, _classCallCheck3.default)(this, Button);
+	
+	    var _this = (0, _possibleConstructorReturn3.default)(this, (Button.__proto__ || (0, _getPrototypeOf2.default)(Button)).call(this, 'button', options));
+	
+	    _this._el.classList.add('button');
+	    _this._el.innerText = _this._options.text || 'Press me';
+	    return _this;
+	  }
+	
+	  return Button;
+	}(_block2.default);
+	
+	exports.default = Button;
+
+/***/ },
 /* 95 */,
 /* 96 */,
 /* 97 */,
@@ -1819,7 +2112,7 @@
 /* 105 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -1849,6 +2142,14 @@
 	
 	var _view2 = _interopRequireDefault(_view);
 	
+	var _form = __webpack_require__(92);
+	
+	var _form2 = _interopRequireDefault(_form);
+	
+	var _jsonRequest = __webpack_require__(106);
+	
+	var _jsonRequest2 = _interopRequireDefault(_jsonRequest);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var RegisterView = function (_View) {
@@ -1866,12 +2167,12 @@
 	  }
 	
 	  (0, _createClass3.default)(RegisterView, [{
-	    key: '_init',
+	    key: "_init",
 	    value: function _init() {
 	      var _this2 = this;
 	
 	      var container = document.querySelector('.container');
-	      this._form = new Form({
+	      this._form = new _form2.default({
 	        data: {
 	          title: 'Registration',
 	          fields: [{
@@ -1901,7 +2202,7 @@
 	      this._form.on('submit', function (event) {
 	        event.preventDefault();
 	        var formData = _this2._form.getFormData();
-	        var result = jsonRequest('https://rainbow-square-backend.herokuapp.com/api/user/', formData);
+	        var result = (0, _jsonRequest2.default)('https://rainbow-square-backend.herokuapp.com/api/user/', formData);
 	        if (result.status === 400) {
 	          window.alert("Такой пользователь уже существует(");
 	        } else {
@@ -1912,7 +2213,7 @@
 	      });
 	    }
 	  }, {
-	    key: 'resume',
+	    key: "resume",
 	    value: function resume() {
 	      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 	
@@ -1923,6 +2224,48 @@
 	}(_view2.default);
 	
 	exports.default = RegisterView;
+
+/***/ },
+/* 106 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _stringify = __webpack_require__(107);
+	
+	var _stringify2 = _interopRequireDefault(_stringify);
+	
+	exports.default = jsonRequest;
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function jsonRequest(url, data) {
+	  var temp = new XMLHttpRequest();
+	  temp.open('POST', url, false);
+	  temp.setRequestHeader('Content-Type', 'application/json');
+	  temp.send((0, _stringify2.default)(data));
+	  return temp;
+	}
+
+/***/ },
+/* 107 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(108), __esModule: true };
+
+/***/ },
+/* 108 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var core  = __webpack_require__(15)
+	  , $JSON = core.JSON || (core.JSON = {stringify: JSON.stringify});
+	module.exports = function stringify(it){ // eslint-disable-line no-unused-vars
+	  return $JSON.stringify.apply($JSON, arguments);
+	};
 
 /***/ }
 /******/ ]);
