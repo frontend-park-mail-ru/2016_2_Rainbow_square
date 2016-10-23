@@ -1,7 +1,5 @@
-(function () {
+import {Router} from "./modules/router.js"
 	'use strict';
-
-	const Router = window.Router;
 	const MainMenuView = window.MainMenuView;
 	const LoginView = window.LoginView;
 	const SinglePlayerView = window.SinglePlayerView;
@@ -17,4 +15,3 @@
     .start();
   }
 
-})();

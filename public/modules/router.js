@@ -1,4 +1,4 @@
-(function () {
+
 	'use strict';
 
 	let Route = window.Route;
@@ -107,6 +107,6 @@
 	}
 
 	// export
-	window.Router = Router;
+	//window.Router = Router;
 
-})();
+export  {Router};
