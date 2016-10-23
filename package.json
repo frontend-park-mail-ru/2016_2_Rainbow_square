@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "node test.js",
-    "fest": "./node_modules/.bin/fest-build --dir=public/components/"
+    "fest": "./node_modules/.bin/fest-build --dir=public/components/",
+    "webpack": "./node_modules/.bin/webpack"
   },
   "repository": {
     "type": "git",

@@ -115,24 +115,39 @@
 	        data: {
 	          fields: [{
 	            name: 'username',
-	            placeholder: 'Username'
+	            placeholder: 'Username',
+	            class: 'input_text'
 	          }, {
 	            name: 'password',
 	            placeholder: 'Password',
-	            type: 'password'
+	            type: 'password',
+	            class: 'input_text'
 	          }],
-	          title: 'Вход',
+	          title: 'RAINBOW SQUARE',
 	          controls: [{
 	            text: 'Войти',
 	            attrs: {
 	              type: 'submit',
-	              class: 'login__submit'
+	              class: 'btn btn-success'
 	            }
 	          }, {
 	            text: 'Регистрация',
 	            attrs: {
 	              type: 'reset',
-	              class: 'login__register'
+	              class: 'btn btn-info'
+	            }
+	          }],
+	          social: [{
+	            text: '',
+	            attrs: {
+	              type: 'submit',
+	              class: 'btn btn-social-icon btn-twitter'
+	            }
+	          }, {
+	            text: '',
+	            attrs: {
+	              type: 'submit',
+	              class: 'btn btn-social-icon btn-vk'
 	            }
 	          }]
 	        }
@@ -2038,6 +2053,14 @@
 	      controls.forEach(function (data) {
 	        var control = new _button2.default(data);
 	        _this2._el.querySelector('.js-controls').appendChild(control._get());
+	      });
+	
+	      var _data$social = this.data.social;
+	      var social = _data$social === undefined ? [] : _data$social;
+	
+	      social.forEach(function (data) {
+	        var _social = new _button2.default(data);
+	        _this2._el.querySelector('.js-social').appendChild(_social._get());
 	      });
 	    }
 	
