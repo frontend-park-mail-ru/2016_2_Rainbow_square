@@ -55,7 +55,7 @@
         } else {
           const obj = JSON.parse(result.responseText);
           window.userinfo = obj;
-          this.router.go('/menu');
+          this.router.go('/');
         }
       });
 

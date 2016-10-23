@@ -41,6 +41,9 @@ app.listen(process.env.PORT || 3000, () => {
 	console.log(`App started on port ${process.env.PORT || 3000}`);
 });
 
-app.get('/login', (req, res) => {
-  res.sendfile('public/index.html', {root: __dirname })
-})
+function pseudoUrlHandler(req, res) {
+  res.sendFile('public/index.html', {root: __dirname });
+}
+
+app.get('/login', pseudoUrlHandler);
+app.get('/register', pseudoUrlHandler);

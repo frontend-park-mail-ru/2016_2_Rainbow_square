@@ -22,7 +22,6 @@
 
 	// export
 	window.SinglePlayerView = SinglePlayerView;
-	window.MainMenuView = SinglePlayerView;
 	window.LoginView = SinglePlayerView;
 	window.MainView = SinglePlayerView;
 

@@ -54,7 +54,7 @@
         } else {
           window.alert("Вы зарегистрированы!");
           const Request = JSON.parse(result.responseText);
-          this._router.go('/menu');
+          this._router.go('/');
         }
       });
     }
