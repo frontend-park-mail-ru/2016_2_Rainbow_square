@@ -17,13 +17,13 @@ export  default  class LoginView extends View {
           {
             name: 'username',
             placeholder: 'Username',
-            class:'input_text'
+            class: 'input_text'
           },
           {
             name: 'password',
             placeholder: 'Password',
             type: 'password',
-            class:'input_text'
+            class: 'input_text'
           }
         ],
         title: 'RAINBOW SQUARE',
@@ -45,16 +45,14 @@ export  default  class LoginView extends View {
         ],
         social: [{
           text: '',
-          attrs: {
-            type: 'submit',
-            class: 'btn btn-social-icon btn-twitter'
-          }
+          class: 'btn btn-social-icon btn-twitter',
+          span: "fa fa-twitter"
+
         }, {
           text: '',
-          attrs: {
-            type: 'submit',
-            class: 'btn btn-social-icon btn-vk'
-          }
+          class: 'btn btn-social-icon btn-vk',
+          span: "fa fa-vk"
+
         }
         ]
       }

@@ -29,7 +29,10 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "json-schema-mock": "0.0.8",
     "techno-gendoc": "0.3.0",
-    "technolibs": "1.1.0"
+    "technolibs": "1.1.0",
+    "bootstrap-social":"^5.0.0",
+    "bootstrap":"^3.3.7"
+
   },
   "devDependencies": {
     "babel-core": "^6.17.0",

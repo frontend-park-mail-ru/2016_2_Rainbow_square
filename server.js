@@ -9,6 +9,10 @@ technoDoc.generate(require('./api'), 'public');
 
 app.use(parser.json());
 app.use('/libs', express.static('node_modules'));
+app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
+app.use('/soc', express.static(__dirname + '/node_modules/bootstrap-social'));
+
+
 
 app.listen(process.env.PORT || 3000, () => {
     console.log(`App started on port ${process.env.PORT || 3000}`);

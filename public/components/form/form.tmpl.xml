@@ -1,22 +1,34 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="data">
-    <style>
+    <form>
+        <div class="grid">
+                <div class="grid__row">
+                    <img src="../../data/images/rainbow-square.gif" alt="лого" align="middle" width="30%" height = "30%"></img>
+                </div>
 
-    </style>
-    <div class="data">
-        <img src="../../data/images/rainbow-square.gif" alt="лого" align="middle" width="40%"></img>
-        <form>
-            <h1>
-                <fest:value>data.title</fest:value>
-            </h1>
-            <div class="js-social"></div>
-            <div>
-                <fest:for iterate="data.fields" index="i" value="field">
-                    <br>
-                        <input type="{field.type || 'text'}" name="{field.name}" placeholder="{field.placeholder}"/>
-                    </br>
-                </fest:for>
+        <div class="grid__row ">
+                <h1>
+                    <fest:value>data.title</fest:value>
+                </h1>
             </div>
-            <div class="js-controls"></div>
-        </form>
-    </div>
+                <div class="grid__row ">
+
+                    <fest:for iterate="data.social" index="i" value="social">
+                        <div class="grid__item">
+                            <a class="{social.class}">
+                                <span class="{social.span}"></span>
+                            </a>
+                        </div>
+                    </fest:for>
+                </div>
+                    <fest:for iterate="data.fields" index="i" value="field">
+                        <div class="grid__row ">
+                            <input type="{field.type || 'text'}" name="{field.name}" placeholder="{field.placeholder}"/>
+
+                        </div>
+                    </fest:for>
+
+                <div class="js-controls grid__row"></div>
+        </div>
+    </form>
+
 </fest:template>

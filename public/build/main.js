@@ -139,16 +139,14 @@
 	          }],
 	          social: [{
 	            text: '',
-	            attrs: {
-	              type: 'submit',
-	              class: 'btn btn-social-icon btn-twitter'
-	            }
+	            class: 'btn btn-social-icon btn-twitter',
+	            span: "fa fa-twitter"
+	
 	          }, {
 	            text: '',
-	            attrs: {
-	              type: 'submit',
-	              class: 'btn btn-social-icon btn-vk'
-	            }
+	            class: 'btn btn-social-icon btn-vk',
+	            span: "fa fa-vk"
+	
 	          }]
 	        }
 	      });
@@ -2055,13 +2053,11 @@
 	        _this2._el.querySelector('.js-controls').appendChild(control._get());
 	      });
 	
-	      var _data$social = this.data.social;
-	      var social = _data$social === undefined ? [] : _data$social;
-	
-	      social.forEach(function (data) {
-	        var _social = new _button2.default(data);
-	        _this2._el.querySelector('.js-social').appendChild(_social._get());
-	      });
+	      // let {social = []} = this.data;
+	      // social.forEach(data => {
+	      //   let _social = new Button(data);
+	      //   this._el.querySelector('.js-social').appendChild(_social._get());
+	      // });
 	    }
 	
 	    /**

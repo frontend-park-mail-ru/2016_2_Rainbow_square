@@ -49,11 +49,11 @@ export  default  class Form extends Block {
       this._el.querySelector('.js-controls').appendChild(control._get());
     });
 
-    let {social = []} = this.data;
-    social.forEach(data => {
-      let _social = new Button(data);
-      this._el.querySelector('.js-social').appendChild(_social._get());
-    });
+    // let {social = []} = this.data;
+    // social.forEach(data => {
+    //   let _social = new Button(data);
+    //   this._el.querySelector('.js-social').appendChild(_social._get());
+    // });
   }
 
   /**

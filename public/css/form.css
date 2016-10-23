@@ -25,3 +25,42 @@
 h1 {
     font: 32pt  Squareo;
 }
+
+.Aligner {
+    display: flex;
+    justify-content: center;
+}
+
+.Aligner-item {
+    max-width: 50%;
+}
+
+
+
+.item {
+    align-self: flex-start;
+    flex: 1;
+    padding: 12px;
+}
+.grid {
+    border: solid 1px #e7e7e7;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+
+}
+
+.grid__row {
+    justify-content: center;
+
+    display: flex;
+    padding: 7px;
+    max-width: 50%;
+}
+
+.grid__item {
+    flex: 2;
+    justify-content: center;
+    padding: 12px;
+    border: solid 1px #e7e7e7;
+}
