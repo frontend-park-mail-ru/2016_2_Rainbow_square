@@ -1,4 +1,4 @@
-(function () {
+
 	'use strict';
 
 	// TODO сделать так, чтобы все тесты проходили
@@ -41,8 +41,4 @@
 		};
 	};
 
-
-	// export
-	window.pathToRegex = pathToRegex;
-
-})();
+export  {pathToRegex};

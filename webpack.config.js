@@ -2,19 +2,23 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
   entry: {
     'test': "./test.js",
-    'bundle': ["./public/main.js"],
+    'main': ["./public/main.js"],
+    'login': ["./public/views/login.js"],
+    'register': ["./public/views/register.js"],
+    'singlePlayer': ["./public/views/singlePlayer.js"],
   },
   output: {
-    path: "./public/",
-    filename: "[name]1.js"
+    path: "./public/build",
+    filename: "[name].js"
   },
   watch: true,
+  devtool: "source-map",
   module: {
     loaders: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        loader: 'babel-loader'
       },
       {
         test: /\.css$/,
