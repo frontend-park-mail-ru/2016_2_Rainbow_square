@@ -2787,7 +2787,10 @@
 	      });
 	
 	      var leaderbord = document.querySelector('.leaderbord');
-	      this._leaderbord = new _link2.default({ class: "ghost-button-rounded-corners", attrs: { text: "leaderbord" } });
+	      this._leaderbord = new _link2.default({
+	        class: "ghost-button-rounded-corners",
+	        attrs: { text: "leaderbord" }
+	      });
 	      // let multiPlayer = new Block_query('Multiplayer');
 	      // let scoreboard = new Block_query('Scoreboard');
 	      play.appendChild(this._leaderbord._el);

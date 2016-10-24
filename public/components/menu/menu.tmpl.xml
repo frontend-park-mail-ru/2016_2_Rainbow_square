@@ -5,16 +5,14 @@
                 <img src="../../data/images/rainbow-square.gif" alt="лого" align="middle" width="6%"
                      height="6%"></img>
             </div>
-            <div class="grid__row " flex="2">
-                <h1>
-                    <fest:value>data.title</fest:value>
-                </h1>
-            </div>
+            <div class="grid__row" flex="1"><br></br> <br></br></div>
             <fest:for iterate="data.fields" index="i" value="field">
                 <div class="grid__row grid__padding7" flex="1">
-                    <div class="{field.class}"></div>
+                    <div class="{field.class} grid__column">
+
+                    </div>
                 </div>
             </fest:for>
-        </div>
+            </div>
     </div>
 </fest:template>

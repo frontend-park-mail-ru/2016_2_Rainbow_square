@@ -35,7 +35,7 @@ export default class MainMenuView extends View {
     container.appendChild(this._menu._el);
 
     let play = document.querySelector('.play');
-    this._play = new Link({ class: "ghost-button-rounded-corners", attrs:{text: "play"}});
+    this._play = new Link({class: "ghost-button-rounded-corners", attrs: {text: "play"}});
     // let multiPlayer = new Block_query('Multiplayer');
     // let scoreboard = new Block_query('Scoreboard');
     play.appendChild(this._play._el);
@@ -45,7 +45,10 @@ export default class MainMenuView extends View {
     });
 
     let leaderbord = document.querySelector('.leaderbord');
-    this._leaderbord = new Link({ class: "ghost-button-rounded-corners", attrs:{text: "leaderbord"}});
+    this._leaderbord = new Link({
+      class: "ghost-button-rounded-corners",
+      attrs: {text: "leaderbord"}
+    });
     // let multiPlayer = new Block_query('Multiplayer');
     // let scoreboard = new Block_query('Scoreboard');
     play.appendChild(this._leaderbord._el);
@@ -55,7 +58,7 @@ export default class MainMenuView extends View {
     });
 
     let exit = document.querySelector('.exitt');
-    this._exit = new Link({ class: "ghost-button-rounded-corners", attrs:{text: "exit"}});
+    this._exit = new Link({class: "ghost-button-rounded-corners", attrs: {text: "exit"}});
     // let multiPlayer = new Block_query('Multiplayer');
     // let scoreboard = new Block_query('Scoreboard');
     play.appendChild(this._exit._el);

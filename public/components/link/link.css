@@ -8,7 +8,7 @@
     text-align: center;
     outline: none;
     text-decoration: none;
-    font: 30pt  Squareo;
+    font: 35pt  Squareo;
 }
 
 .ghost-button-rounded-corners:hover,
@@ -16,5 +16,5 @@
 .ghost-button-rounded-corners:active {
     color: #000000;
     text-decoration: none;
-    font: 30pt  Square;
+    font: 35pt  Square;
 }

@@ -49,6 +49,9 @@ h1 {
     flex-direction: row;
     justify-content: center;
 }
+.grid_start {
+    justify-content: flex-start;
+}
 .grid__padding7{
     padding: 7px;
 }
