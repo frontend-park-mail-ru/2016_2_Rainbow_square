@@ -29,31 +29,34 @@ export  default  class LoginView extends View {
         title: 'RAINBOW SQUARE',
         controls: [
           {
-            text: 'Войти',
-            attrs: {
-              type: 'submit',
-              class: 'btn btn-success'
-            }
+            text: 'Sing in',
+            type: 'submit',
+            class: 'btn btn-success'
           },
           {
-            text: 'Регистрация',
-            attrs: {
-              type: 'reset',
-              class: 'btn btn-info'
-            }
+            text: 'Sign up',
+            type: 'reset',
+            class: 'btn btn-info '
+
           }
         ],
         social: [{
           text: '',
-          class: 'btn btn-social-icon btn-twitter',
-          span: "fa fa-twitter"
-
-        }, {
-          text: '',
           class: 'btn btn-social-icon btn-vk',
           span: "fa fa-vk"
 
-        }
+        }, {
+          text: '',
+          class: 'btn btn-social-icon btn-facebook',
+          span: "fa fa-facebook"
+
+        },
+          {
+            text: '',
+            class: 'btn btn-social-icon btn-twitter',
+            span: "fa fa-twitter"
+
+          }
         ]
       }
     });

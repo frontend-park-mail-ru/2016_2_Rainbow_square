@@ -125,27 +125,29 @@
 	          }],
 	          title: 'RAINBOW SQUARE',
 	          controls: [{
-	            text: 'Войти',
-	            attrs: {
-	              type: 'submit',
-	              class: 'btn btn-success'
-	            }
+	            text: 'Sing in',
+	            type: 'submit',
+	            class: 'btn btn-success'
 	          }, {
-	            text: 'Регистрация',
-	            attrs: {
-	              type: 'reset',
-	              class: 'btn btn-info'
-	            }
+	            text: 'Sign up',
+	            type: 'reset',
+	            class: 'btn btn-info '
+	
 	          }],
 	          social: [{
 	            text: '',
-	            class: 'btn btn-social-icon btn-twitter',
-	            span: "fa fa-twitter"
+	            class: 'btn btn-social-icon btn-vk',
+	            span: "fa fa-vk"
 	
 	          }, {
 	            text: '',
-	            class: 'btn btn-social-icon btn-vk',
-	            span: "fa fa-vk"
+	            class: 'btn btn-social-icon btn-facebook',
+	            span: "fa fa-facebook"
+	
+	          }, {
+	            text: '',
+	            class: 'btn btn-social-icon btn-twitter',
+	            span: "fa fa-twitter"
 	
 	          }]
 	        }
@@ -2012,7 +2014,6 @@
 	    key: "render",
 	    value: function render() {
 	      this._updateHtml();
-	      this._installControls();
 	    }
 	
 	    /**
@@ -2033,31 +2034,6 @@
 	    key: "_updateHtml",
 	    value: function _updateHtml() {
 	      this._el.innerHTML = this.template(this.data);
-	    }
-	
-	    /**
-	     * Вставить управляющие элементы в форму
-	     */
-	
-	  }, {
-	    key: "_installControls",
-	    value: function _installControls() {
-	      var _this2 = this;
-	
-	      var _data$controls = this.data.controls;
-	      var controls = _data$controls === undefined ? [] : _data$controls;
-	
-	
-	      controls.forEach(function (data) {
-	        var control = new _button2.default(data);
-	        _this2._el.querySelector('.js-controls').appendChild(control._get());
-	      });
-	
-	      // let {social = []} = this.data;
-	      // social.forEach(data => {
-	      //   let _social = new Button(data);
-	      //   this._el.querySelector('.js-social').appendChild(_social._get());
-	      // });
 	    }
 	
 	    /**

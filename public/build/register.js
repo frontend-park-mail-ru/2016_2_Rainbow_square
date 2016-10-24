@@ -1876,7 +1876,6 @@
 	    key: "render",
 	    value: function render() {
 	      this._updateHtml();
-	      this._installControls();
 	    }
 	
 	    /**
@@ -1897,31 +1896,6 @@
 	    key: "_updateHtml",
 	    value: function _updateHtml() {
 	      this._el.innerHTML = this.template(this.data);
-	    }
-	
-	    /**
-	     * Вставить управляющие элементы в форму
-	     */
-	
-	  }, {
-	    key: "_installControls",
-	    value: function _installControls() {
-	      var _this2 = this;
-	
-	      var _data$controls = this.data.controls;
-	      var controls = _data$controls === undefined ? [] : _data$controls;
-	
-	
-	      controls.forEach(function (data) {
-	        var control = new _button2.default(data);
-	        _this2._el.querySelector('.js-controls').appendChild(control._get());
-	      });
-	
-	      // let {social = []} = this.data;
-	      // social.forEach(data => {
-	      //   let _social = new Button(data);
-	      //   this._el.querySelector('.js-social').appendChild(_social._get());
-	      // });
 	    }
 	
 	    /**

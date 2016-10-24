@@ -21,7 +21,6 @@ export  default  class Form extends Block {
    */
   render() {
     this._updateHtml();
-    this._installControls();
   }
 
   /**
@@ -38,23 +37,7 @@ export  default  class Form extends Block {
     this._el.innerHTML = this.template(this.data);
   }
 
-  /**
-   * Вставить управляющие элементы в форму
-   */
-  _installControls() {
-    let {controls = []} = this.data;
 
-    controls.forEach(data => {
-      let control = new Button(data);
-      this._el.querySelector('.js-controls').appendChild(control._get());
-    });
-
-    // let {social = []} = this.data;
-    // social.forEach(data => {
-    //   let _social = new Button(data);
-    //   this._el.querySelector('.js-social').appendChild(_social._get());
-    // });
-  }
 
   /**
    * Взять данные формы
