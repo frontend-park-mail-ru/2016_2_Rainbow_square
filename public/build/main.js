@@ -2725,13 +2725,17 @@
 	
 	var _view2 = _interopRequireDefault(_view);
 	
+	var _menu = __webpack_require__(112);
+	
+	var _menu2 = _interopRequireDefault(_menu);
+	
 	var _block = __webpack_require__(93);
 	
 	var _block2 = _interopRequireDefault(_block);
 	
-	var _button = __webpack_require__(94);
+	var _block_query = __webpack_require__(111);
 	
-	var _button2 = _interopRequireDefault(_button);
+	var _block_query2 = _interopRequireDefault(_block_query);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -2745,38 +2749,30 @@
 	    var _this = (0, _possibleConstructorReturn3.default)(this, (MainMenuView.__proto__ || (0, _getPrototypeOf2.default)(MainMenuView)).call(this, options));
 	
 	    _this._init();
-	    _this.hide();
+	    // this.hide();
 	    return _this;
 	  }
 	
 	  (0, _createClass3.default)(MainMenuView, [{
 	    key: "_init",
 	    value: function _init() {
-	      var _this2 = this;
-	
 	      var container = document.querySelector('.container');
-	      var menu = new _block2.default('div');
-	      var singlePlayer = new _button2.default({ text: 'Single player' });
-	      var multiPlayer = new _button2.default({ text: 'Multiplayer' });
-	      var scoreboard = new _button2.default({ text: 'Scoreboard' });
-	      singlePlayer.on('click', function (event) {
-	        _this2.router.go('/singlePlayer');
-	      });
-	      multiPlayer.on('click', function (event) {
-	        _this2.router.go('/multiPlayer');
-	      });
-	      scoreboard.on('click', function (event) {
-	        _this2.router.go('/scores');
-	      });
-	      singlePlayer.classAdd('mainMenu_buttom');
-	      multiPlayer.classAdd('mainMenu_buttom');
-	      scoreboard.classAdd('mainMenu_buttom');
-	      menu.append(singlePlayer);
-	      menu.append(multiPlayer);
-	      menu.append(scoreboard);
-	      this._menu = menu;
+	      var menu = new _menu2.default('div');
+	      // let singlePlayer = new Block_query('Single_player');
+	      // let multiPlayer = new Block_query('Multiplayer');
+	      // let scoreboard = new Block_query('Scoreboard');
+	      //singlePlayer.on('click', event => { this.router.go('/singlePlayer'); });
+	      // multiPlayer.on('click', event => { this.router.go('/multiPlayer'); });
+	      // scoreboard.on('click', event => { this.router.go('/scores'); });
+	      // singlePlayer.classAdd('mainMenu_buttom');
+	      // multiPlayer.classAdd('mainMenu_buttom');
+	      // scoreboard.classAdd('mainMenu_buttom');
+	      // menu.append(singlePlayer);
+	      // menu.append(multiPlayer);
+	      // menu.append(scoreboard);
+	      this._el = this.menu._el;
 	      container.appendChild(menu._el);
-	      this._el = menu._el;
+	      // this._el = menu._el;
 	    }
 	  }, {
 	    key: "resume",
@@ -2928,7 +2924,7 @@
 	      var container = document.querySelector('.container');
 	      this._form = new _form2.default({
 	        data: {
-	          title: 'Registration',
+	          title: 'Rainbow square',
 	          fields: [{
 	            name: 'email',
 	            type: 'email',
@@ -2978,6 +2974,191 @@
 	}(_view2.default);
 	
 	exports.default = RegisterView;
+
+/***/ },
+/* 109 */,
+/* 110 */,
+/* 111 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _keys = __webpack_require__(89);
+	
+	var _keys2 = _interopRequireDefault(_keys);
+	
+	var _classCallCheck2 = __webpack_require__(28);
+	
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+	
+	var _createClass2 = __webpack_require__(29);
+	
+	var _createClass3 = _interopRequireDefault(_createClass2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Block_query = function () {
+	  function Block_query(name) {
+	    (0, _classCallCheck3.default)(this, Block_query);
+	
+	    this._el = document.querySelector(name);
+	  }
+	
+	  (0, _createClass3.default)(Block_query, [{
+	    key: "setAttrs",
+	    value: function setAttrs() {
+	      var _this = this;
+	
+	      var attrs = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	
+	      (0, _keys2.default)(attrs).forEach(function (name) {
+	        _this._el.setAttribute(name, attrs[name]);
+	      });
+	    }
+	  }, {
+	    key: "renderTo",
+	    value: function renderTo(element) {
+	      element.appendChild(this._el);
+	    }
+	  }, {
+	    key: "append",
+	    value: function append(element) {
+	      if (element instanceof Block_query) {
+	        this._el.appendChild(element._get());
+	      } else {
+	        this._el.appendChild(element);
+	      }
+	    }
+	
+	    /**
+	     * Подписка на событие
+	     * @param {string} type - имя события
+	     * @param {function} callback - коллбек
+	     */
+	
+	  }, {
+	    key: "on",
+	    value: function on(type, callback) {
+	      this._el.addEventListener(type, callback);
+	    }
+	
+	    /**
+	     * Отписка от события
+	     * @param {string} type - имя события
+	     * @param {function} callback - коллбек
+	     */
+	
+	  }, {
+	    key: "stop",
+	    value: function stop(type, callback) {
+	      this._el.removeEventListener(type, callback);
+	    }
+	  }, {
+	    key: "toString",
+	    value: function toString() {
+	      return this._el.outerHTML;
+	    }
+	  }, {
+	    key: "_get",
+	    value: function _get() {
+	      return this._el;
+	    }
+	  }, {
+	    key: "classAdd",
+	    value: function classAdd(name) {
+	      this._el.classList.add(name);
+	    }
+	  }, {
+	    key: "classRemove",
+	    value: function classRemove(name) {
+	      this._el.classList.remove(name);
+	    }
+	  }]);
+	  return Block_query;
+	}();
+	
+	exports.default = Block_query;
+
+/***/ },
+/* 112 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _getPrototypeOf = __webpack_require__(2);
+	
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+	
+	var _classCallCheck2 = __webpack_require__(28);
+	
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+	
+	var _createClass2 = __webpack_require__(29);
+	
+	var _createClass3 = _interopRequireDefault(_createClass2);
+	
+	var _possibleConstructorReturn2 = __webpack_require__(33);
+	
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+	
+	var _inherits2 = __webpack_require__(80);
+	
+	var _inherits3 = _interopRequireDefault(_inherits2);
+	
+	var _block = __webpack_require__(93);
+	
+	var _block2 = _interopRequireDefault(_block);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Menu = function (_Block) {
+	  (0, _inherits3.default)(Menu, _Block);
+	
+	  function Menu() {
+	    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { data: {} };
+	    (0, _classCallCheck3.default)(this, Menu);
+	
+	    var _this = (0, _possibleConstructorReturn3.default)(this, (Menu.__proto__ || (0, _getPrototypeOf2.default)(Menu)).call(this, 'div'));
+	
+	    _this.data = options.data;
+	    _this.template = window.fest["menu/menu.tmpl"];
+	    _this.render();
+	    return _this;
+	  }
+	
+	  /**
+	   * Обновляем HTML
+	   */
+	
+	
+	  (0, _createClass3.default)(Menu, [{
+	    key: "render",
+	    value: function render() {
+	      this._updateHtml();
+	    }
+	
+	    /**
+	     * Обновить html компонента
+	     */
+	
+	  }, {
+	    key: "_updateHtml",
+	    value: function _updateHtml() {
+	      this._el.innerHTML = this.template(this.data);
+	    }
+	  }]);
+	  return Menu;
+	}(_block2.default);
+	
+	exports.default = Menu;
 
 /***/ }
 /******/ ]);

@@ -2207,7 +2207,7 @@
 	      var container = document.querySelector('.container');
 	      this._form = new _form2.default({
 	        data: {
-	          title: 'Registration',
+	          title: 'Rainbow square',
 	          fields: [{
 	            name: 'email',
 	            type: 'email',

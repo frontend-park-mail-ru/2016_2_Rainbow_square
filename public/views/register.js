@@ -13,7 +13,7 @@ export  default  class RegisterView extends View {
     let container = document.querySelector('.container');
     this._form = new Form({
       data: {
-        title: 'Registration',
+        title: 'Rainbow square',
         fields: [
           {
             name: 'email',

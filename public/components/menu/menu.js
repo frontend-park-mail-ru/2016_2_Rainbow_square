@@ -1,10 +1,10 @@
 import Block from "../block/block"
 
-export  default  class Form extends Block {
+export  default  class Menu extends Block {
   constructor(options = {data: {}}) {
-    super('form');
+    super('div');
     this.data = options.data;
-    this.template = window.fest[options.data.template];
+    this.template = window.fest["menu/menu.tmpl"];
     this.render();
   }
 
