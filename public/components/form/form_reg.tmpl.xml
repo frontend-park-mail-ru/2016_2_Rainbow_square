@@ -2,6 +2,7 @@
     <form>
         <div class="grid">
             <div class="grid__row" flex="1">
+
             </div>
             <div class="grid__column">
                 <div class="grid__row" flex="1">
@@ -13,15 +14,7 @@
                         <fest:value>data.title</fest:value>
                     </h1>
                 </div>
-                <div class="grid__row" flex="1">
-                    <fest:for iterate="data.social" index="i" value="social">
-                        <div class="grid__item">
-                            <a class="{social.class}">
-                                <span class="{social.span}"></span>
-                            </a>
-                        </div>
-                    </fest:for>
-                </div>
+
                 <fest:for iterate="data.fields" index="i" value="field">
                     <div class="grid__row grid__padding7" flex="1">
                         <input type="{field.type || 'text'}" name="{field.name}" placeholder="{field.placeholder} "

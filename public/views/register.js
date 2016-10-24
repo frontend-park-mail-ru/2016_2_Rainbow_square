@@ -31,13 +31,13 @@ export  default  class RegisterView extends View {
             placeholder: 'Password'
           }
         ],
+        template: 'form/form.tmpl',
         controls: [
           {
             text: 'Sign up',
-            attrs: {
-              type: 'submit',
-              class: 'register__submit'
-            }
+            type: 'submit',
+            class: 'register__submit btn-success btn-md'
+
           }
         ]
       }

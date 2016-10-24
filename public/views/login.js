@@ -26,6 +26,7 @@ export  default  class LoginView extends View {
             class: 'input_text'
           }
         ],
+        template: 'form/form.tmpl',
         title: 'RAINBOW SQUARE',
         controls: [
           {

@@ -1859,10 +1859,11 @@
 	    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { data: {} };
 	    (0, _classCallCheck3.default)(this, Form);
 	
+	    //'form/form.tmpl'
 	    var _this = (0, _possibleConstructorReturn3.default)(this, (Form.__proto__ || (0, _getPrototypeOf2.default)(Form)).call(this, 'form'));
 	
-	    _this.template = window.fest['form/form.tmpl'];
 	    _this.data = options.data;
+	    _this.template = window.fest[options.data.template];
 	    _this.render();
 	    return _this;
 	  }
@@ -2220,12 +2221,12 @@
 	            type: 'password',
 	            placeholder: 'Password'
 	          }],
+	          template: 'form/form.tmpl',
 	          controls: [{
 	            text: 'Sign up',
-	            attrs: {
-	              type: 'submit',
-	              class: 'register__submit'
-	            }
+	            type: 'submit',
+	            class: 'register__submit btn-success btn-md'
+	
 	          }]
 	        }
 	      });
