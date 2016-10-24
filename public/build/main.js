@@ -2216,9 +2216,10 @@
 	  function Button(options) {
 	    (0, _classCallCheck3.default)(this, Button);
 	
+	    //this._el.classList.add('button');
 	    var _this = (0, _possibleConstructorReturn3.default)(this, (Button.__proto__ || (0, _getPrototypeOf2.default)(Button)).call(this, 'button', options));
 	
-	    _this._el.classList.add('button');
+	    _this._el.classList.add(_this._options.class || '');
 	    _this._el.innerText = _this._options.text || 'Press me';
 	    return _this;
 	  }
@@ -2729,13 +2730,13 @@
 	
 	var _menu2 = _interopRequireDefault(_menu);
 	
-	var _block = __webpack_require__(93);
+	var _button = __webpack_require__(94);
 	
-	var _block2 = _interopRequireDefault(_block);
+	var _button2 = _interopRequireDefault(_button);
 	
-	var _block_query = __webpack_require__(111);
+	var _link = __webpack_require__(113);
 	
-	var _block_query2 = _interopRequireDefault(_block_query);
+	var _link2 = _interopRequireDefault(_link);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -2756,12 +2757,51 @@
 	  (0, _createClass3.default)(MainMenuView, [{
 	    key: "_init",
 	    value: function _init() {
+	      var _this2 = this;
+	
 	      var container = document.querySelector('.container');
-	      var menu = new _menu2.default('div');
-	      // let singlePlayer = new Block_query('Single_player');
+	      this._menu = new _menu2.default({
+	        data: {
+	          fields: [{
+	            class: 'play'
+	          }, {
+	            class: 'leaderbord'
+	          }, {
+	            class: 'exit'
+	          }],
+	          template: 'menu/menu.tmpl',
+	          title: 'RAINBOW SQUARE'
+	        }
+	      });
+	      this._el = this._menu._el;
+	      container.appendChild(this._menu._el);
+	
+	      var play = document.querySelector('.play');
+	      this._play = new _link2.default({ class: "ghost-button-rounded-corners", attrs: { text: "play" } });
 	      // let multiPlayer = new Block_query('Multiplayer');
 	      // let scoreboard = new Block_query('Scoreboard');
-	      //singlePlayer.on('click', event => { this.router.go('/singlePlayer'); });
+	      play.appendChild(this._play._el);
+	
+	      this._play.on('click', function (event) {
+	        _this2.router.go('/login');
+	      });
+	
+	      var leaderbord = document.querySelector('.leaderbord');
+	      this._leaderbord = new _link2.default({ class: "ghost-button-rounded-corners", attrs: { text: "leaderbord" } });
+	      // let multiPlayer = new Block_query('Multiplayer');
+	      // let scoreboard = new Block_query('Scoreboard');
+	      play.appendChild(this._leaderbord._el);
+	
+	      this._leaderbord.on('click', function (event) {
+	        _this2.router.go('/scores');
+	      });
+	
+	      var exit = document.querySelector('.exitt');
+	      this._exit = new _link2.default({ class: "ghost-button-rounded-corners", attrs: { text: "exit" } });
+	      // let multiPlayer = new Block_query('Multiplayer');
+	      // let scoreboard = new Block_query('Scoreboard');
+	      play.appendChild(this._exit._el);
+	
 	      // multiPlayer.on('click', event => { this.router.go('/multiPlayer'); });
 	      // scoreboard.on('click', event => { this.router.go('/scores'); });
 	      // singlePlayer.classAdd('mainMenu_buttom');
@@ -2770,8 +2810,7 @@
 	      // menu.append(singlePlayer);
 	      // menu.append(multiPlayer);
 	      // menu.append(scoreboard);
-	      this._el = this.menu._el;
-	      container.appendChild(menu._el);
+	
 	      // this._el = menu._el;
 	    }
 	  }, {
@@ -2978,112 +3017,7 @@
 /***/ },
 /* 109 */,
 /* 110 */,
-/* 111 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _keys = __webpack_require__(89);
-	
-	var _keys2 = _interopRequireDefault(_keys);
-	
-	var _classCallCheck2 = __webpack_require__(28);
-	
-	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-	
-	var _createClass2 = __webpack_require__(29);
-	
-	var _createClass3 = _interopRequireDefault(_createClass2);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var Block_query = function () {
-	  function Block_query(name) {
-	    (0, _classCallCheck3.default)(this, Block_query);
-	
-	    this._el = document.querySelector(name);
-	  }
-	
-	  (0, _createClass3.default)(Block_query, [{
-	    key: "setAttrs",
-	    value: function setAttrs() {
-	      var _this = this;
-	
-	      var attrs = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-	
-	      (0, _keys2.default)(attrs).forEach(function (name) {
-	        _this._el.setAttribute(name, attrs[name]);
-	      });
-	    }
-	  }, {
-	    key: "renderTo",
-	    value: function renderTo(element) {
-	      element.appendChild(this._el);
-	    }
-	  }, {
-	    key: "append",
-	    value: function append(element) {
-	      if (element instanceof Block_query) {
-	        this._el.appendChild(element._get());
-	      } else {
-	        this._el.appendChild(element);
-	      }
-	    }
-	
-	    /**
-	     * Подписка на событие
-	     * @param {string} type - имя события
-	     * @param {function} callback - коллбек
-	     */
-	
-	  }, {
-	    key: "on",
-	    value: function on(type, callback) {
-	      this._el.addEventListener(type, callback);
-	    }
-	
-	    /**
-	     * Отписка от события
-	     * @param {string} type - имя события
-	     * @param {function} callback - коллбек
-	     */
-	
-	  }, {
-	    key: "stop",
-	    value: function stop(type, callback) {
-	      this._el.removeEventListener(type, callback);
-	    }
-	  }, {
-	    key: "toString",
-	    value: function toString() {
-	      return this._el.outerHTML;
-	    }
-	  }, {
-	    key: "_get",
-	    value: function _get() {
-	      return this._el;
-	    }
-	  }, {
-	    key: "classAdd",
-	    value: function classAdd(name) {
-	      this._el.classList.add(name);
-	    }
-	  }, {
-	    key: "classRemove",
-	    value: function classRemove(name) {
-	      this._el.classList.remove(name);
-	    }
-	  }]);
-	  return Block_query;
-	}();
-	
-	exports.default = Block_query;
-
-/***/ },
+/* 111 */,
 /* 112 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -3129,7 +3063,10 @@
 	    var _this = (0, _possibleConstructorReturn3.default)(this, (Menu.__proto__ || (0, _getPrototypeOf2.default)(Menu)).call(this, 'div'));
 	
 	    _this.data = options.data;
+	    console.log(window.fest["menu/menu.tmpl"]);
+	    console.log("hh");
 	    _this.template = window.fest["menu/menu.tmpl"];
+	
 	    _this.render();
 	    return _this;
 	  }
@@ -3159,6 +3096,57 @@
 	}(_block2.default);
 	
 	exports.default = Menu;
+
+/***/ },
+/* 113 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _getPrototypeOf = __webpack_require__(2);
+	
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+	
+	var _classCallCheck2 = __webpack_require__(28);
+	
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+	
+	var _possibleConstructorReturn2 = __webpack_require__(33);
+	
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+	
+	var _inherits2 = __webpack_require__(80);
+	
+	var _inherits3 = _interopRequireDefault(_inherits2);
+	
+	var _block = __webpack_require__(93);
+	
+	var _block2 = _interopRequireDefault(_block);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Link = function (_Block) {
+	  (0, _inherits3.default)(Link, _Block);
+	
+	  function Link(options) {
+	    (0, _classCallCheck3.default)(this, Link);
+	
+	    var _this = (0, _possibleConstructorReturn3.default)(this, (Link.__proto__ || (0, _getPrototypeOf2.default)(Link)).call(this, 'a', options));
+	
+	    _this._el.classList.add(_this._options.class || '');
+	    _this.setAttrs(options.attrs);
+	    _this._el.innerText = _this._options.attrs.text || 'Press me';
+	    return _this;
+	  }
+	
+	  return Link;
+	}(_block2.default);
+	
+	exports.default = Link;
 
 /***/ }
 /******/ ]);

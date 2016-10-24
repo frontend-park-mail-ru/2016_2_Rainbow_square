@@ -4,7 +4,10 @@ export  default  class Menu extends Block {
   constructor(options = {data: {}}) {
     super('div');
     this.data = options.data;
+    console.log(window.fest["menu/menu.tmpl"]);
+    console.log("hh");
     this.template = window.fest["menu/menu.tmpl"];
+
     this.render();
   }
 

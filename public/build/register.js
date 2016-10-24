@@ -2077,9 +2077,10 @@
 	  function Button(options) {
 	    (0, _classCallCheck3.default)(this, Button);
 	
+	    //this._el.classList.add('button');
 	    var _this = (0, _possibleConstructorReturn3.default)(this, (Button.__proto__ || (0, _getPrototypeOf2.default)(Button)).call(this, 'button', options));
 	
-	    _this._el.classList.add('button');
+	    _this._el.classList.add(_this._options.class || '');
 	    _this._el.innerText = _this._options.text || 'Press me';
 	    return _this;
 	  }

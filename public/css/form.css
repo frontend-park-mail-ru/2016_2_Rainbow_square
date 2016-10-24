@@ -20,7 +20,13 @@
 @font-face {
     font-family: Squareo; /* Гарнитура шрифта */
     src: url("../data/fonts/Squareo.ttf"); /* Путь к файлу со шрифтом */
+
 }
+@font-face {
+    font-family: Square; /* Гарнитура шрифта */
+    src: url("../data/fonts/Square.ttf"); /* Путь к файлу со шрифтом */
+}
+
 
 h1 {
     font: 35pt  Squareo;
