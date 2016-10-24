@@ -114,7 +114,7 @@
 	      this._form = new _form2.default({
 	        data: {
 	          fields: [{
-	            name: 'username',
+	            name: 'login',
 	            placeholder: 'Username',
 	            class: 'input_text'
 	          }, {
@@ -2934,7 +2934,7 @@
 	            type: 'email',
 	            placeholder: 'Email'
 	          }, {
-	            name: 'username',
+	            name: 'login',
 	            type: 'text',
 	            placeholder: 'Username'
 	          }, {

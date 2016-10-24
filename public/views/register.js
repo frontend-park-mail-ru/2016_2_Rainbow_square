@@ -21,7 +21,7 @@ export  default  class RegisterView extends View {
             placeholder: 'Email'
           },
           {
-            name: 'username',
+            name: 'login',
             type: 'text',
             placeholder: 'Username'
           },

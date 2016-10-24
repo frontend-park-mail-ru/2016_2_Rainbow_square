@@ -15,7 +15,7 @@ export  default  class LoginView extends View {
       data: {
         fields: [
           {
-            name: 'username',
+            name: 'login',
             placeholder: 'Username',
             class: 'input_text'
           },

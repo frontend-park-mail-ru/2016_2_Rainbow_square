@@ -2213,7 +2213,7 @@
 	            type: 'email',
 	            placeholder: 'Email'
 	          }, {
-	            name: 'username',
+	            name: 'login',
 	            type: 'text',
 	            placeholder: 'Username'
 	          }, {
