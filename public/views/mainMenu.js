@@ -41,7 +41,7 @@ export default class MainMenuView extends View {
     play.appendChild(this._play._el);
 
     this._play.on('click', event => {
-      this.router.go('/login');
+      this.router.go('/playchoose');
     });
 
     let leaderbord = document.querySelector('.leaderbord');
@@ -57,11 +57,14 @@ export default class MainMenuView extends View {
       this.router.go('/scores');
     });
 
-    let exit = document.querySelector('.exitt');
+    let exit = document.querySelector('.exit');
     this._exit = new Link({class: "ghost-button-rounded-corners", attrs: {text: "exit"}});
+    this._exit .on('click', event => {
+      this.router.go('/');
+    });
     // let multiPlayer = new Block_query('Multiplayer');
     // let scoreboard = new Block_query('Scoreboard');
-    play.appendChild(this._exit._el);
+    exit.appendChild(this._exit._el);
 
 
     // multiPlayer.on('click', event => { this.router.go('/multiPlayer'); });

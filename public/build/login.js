@@ -164,7 +164,7 @@
 	        } else {
 	          var obj = JSON.parse(result.responseText);
 	          window.userinfo = obj;
-	          _this2.router.go('/');
+	          _this2.router.go('/play');
 	        }
 	      });
 	

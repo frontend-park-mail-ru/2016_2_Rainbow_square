@@ -72,7 +72,7 @@ export  default  class LoginView extends View {
       } else {
         const obj = JSON.parse(result.responseText);
         window.userinfo = obj;
-        this.router.go('/');
+        this.router.go('/play');
       }
     });
 
