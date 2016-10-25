@@ -1,9 +1,6 @@
 node_modules/
 public/api
 *.idea/*
-public/build
 *.bak
-*.tmpl.js
-build
 .tern-project
 
