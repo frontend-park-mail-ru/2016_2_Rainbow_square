@@ -18,7 +18,7 @@ export  default  class SinglePlayerView extends View {
       console.log(`pos: x=${pos.x} y=${pos.y}`);
     });
     gameField.renderTo(gameContainer._get());
-    gameField.renderTo(container);
+    gameContainer.renderTo(container);
     this._el = gameContainer._get();
   }
 
