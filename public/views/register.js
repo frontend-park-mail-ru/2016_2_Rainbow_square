@@ -13,7 +13,7 @@ export  default  class RegisterView extends View {
     let container = document.querySelector('.content_container');
     this._form = new Form({
       data: {
-        title: 'Registration',
+        title: 'Rainbow square',
         fields: [
           {
             name: 'email',
@@ -21,7 +21,7 @@ export  default  class RegisterView extends View {
             placeholder: 'Email'
           },
           {
-            name: 'username',
+            name: 'login',
             type: 'text',
             placeholder: 'Username'
           },
@@ -31,13 +31,13 @@ export  default  class RegisterView extends View {
             placeholder: 'Password'
           }
         ],
+        template: 'form/form.tmpl',
         controls: [
           {
             text: 'Sign up',
-            attrs: {
-              type: 'submit',
-              class: 'register__submit'
-            }
+            type: 'submit',
+            class: 'register__submit btn-success btn-md'
+
           }
         ]
       }

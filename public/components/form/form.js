@@ -11,8 +11,9 @@ export  default  class Form extends Block {
    */
   constructor(options = {data: {}}) {
     super('form');
-    this.template = window.fest['form/form.tmpl'];
+    //'form/form.tmpl'
     this.data = options.data;
+    this.template = window.fest[options.data.template];
     this.render();
   }
 

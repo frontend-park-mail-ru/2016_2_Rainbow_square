@@ -15,7 +15,7 @@ export  default  class LoginView extends View {
       data: {
         fields: [
           {
-            name: 'username',
+            name: 'login',
             placeholder: 'Username',
             class: 'input_text'
           },
@@ -26,6 +26,7 @@ export  default  class LoginView extends View {
             class: 'input_text'
           }
         ],
+        template: 'form/form.tmpl',
         title: 'RAINBOW SQUARE',
         controls: [
           {
