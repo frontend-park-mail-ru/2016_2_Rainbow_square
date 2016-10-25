@@ -3159,7 +3159,7 @@
 /* 111 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -3189,6 +3189,18 @@
 	
 	var _view2 = _interopRequireDefault(_view);
 	
+	var _menu = __webpack_require__(109);
+	
+	var _menu2 = _interopRequireDefault(_menu);
+	
+	var _button = __webpack_require__(94);
+	
+	var _button2 = _interopRequireDefault(_button);
+	
+	var _link = __webpack_require__(110);
+	
+	var _link2 = _interopRequireDefault(_link);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var PlayChooseView = function (_View) {
@@ -3206,12 +3218,12 @@
 	  }
 	
 	  (0, _createClass3.default)(PlayChooseView, [{
-	    key: '_init',
+	    key: "_init",
 	    value: function _init() {
 	      var _this2 = this;
 	
 	      var container = document.querySelector('.container');
-	      this._menu = new Menu({
+	      this._menu = new _menu2.default({
 	        data: {
 	          fields: [{
 	            class: 'Singleplayer'
@@ -3226,7 +3238,7 @@
 	      container.appendChild(this._menu._el);
 	
 	      var play = document.querySelector('.Singleplayer');
-	      this._play = new Link({ class: "ghost-button-rounded-corners", attrs: { text: "SINGLEPLAYER" } });
+	      this._play = new _link2.default({ class: "ghost-button-rounded-corners", attrs: { text: "SINGLEPLAYER" } });
 	      // let multiPlayer = new Block_query('Multiplayer');
 	      // let scoreboard = new Block_query('Scoreboard');
 	      play.appendChild(this._play._el);
@@ -3236,7 +3248,7 @@
 	      });
 	
 	      var leaderbord = document.querySelector('.Multiplayer');
-	      this._leaderbord = new Link({
+	      this._leaderbord = new _link2.default({
 	        class: "ghost-button-rounded-corners",
 	        attrs: { text: "MULTIPLAYER" }
 	      });
@@ -3250,7 +3262,7 @@
 	      // this._el = menu._el;
 	    }
 	  }, {
-	    key: 'resume',
+	    key: "resume",
 	    value: function resume() {
 	      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 	

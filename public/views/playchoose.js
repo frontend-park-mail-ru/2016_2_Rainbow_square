@@ -1,4 +1,7 @@
 import View from "../modules/view"
+import Menu from "../components/menu/menu"
+import Button from "../components/button/button.js";
+import Link from "../components/link/link.js";
 
 export  default  class PlayChooseView extends View {
   constructor(options = {}) {
