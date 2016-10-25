@@ -36,7 +36,7 @@ export  default  class PlayChooseView extends View {
     play.appendChild(this._play._el);
 
     this._play.on('click', event => {
-      this.router.go('/scores');
+      this.router.go('/singleplayer');
     });
 
     let leaderbord = document.querySelector('.Multiplayer');

@@ -42,14 +42,17 @@ h1 {
 .grid__column {
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 .grid__row {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
-.grid_start {
+.flex_center {
+    justify-content: center;
+
+}
+.flex_start {
     justify-content: flex-start;
 }
 .grid__padding7{

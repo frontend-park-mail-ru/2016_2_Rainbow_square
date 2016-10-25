@@ -25,3 +25,5 @@ function pseudoUrlHandler(req, res) {
 app.get('/login', pseudoUrlHandler);
 app.get('/register', pseudoUrlHandler);
 app.get('/singlePlayer', pseudoUrlHandler);
+app.get('/play', pseudoUrlHandler);
+app.get('/playchoose', pseudoUrlHandler);
