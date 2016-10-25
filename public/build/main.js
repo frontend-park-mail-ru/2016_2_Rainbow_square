@@ -2277,11 +2277,11 @@
 
 	'use strict';
 	
-	var _router = __webpack_require__(101);
+	var _router = __webpack_require__(99);
 	
 	var _router2 = _interopRequireDefault(_router);
 	
-	var _mainMenu = __webpack_require__(108);
+	var _mainMenu = __webpack_require__(106);
 	
 	var _mainMenu2 = _interopRequireDefault(_mainMenu);
 	
@@ -2289,11 +2289,11 @@
 	
 	var _login2 = _interopRequireDefault(_login);
 	
-	var _singlePlayer = __webpack_require__(100);
+	var _singlePlayer = __webpack_require__(109);
 	
 	var _singlePlayer2 = _interopRequireDefault(_singlePlayer);
 	
-	var _register = __webpack_require__(99);
+	var _register = __webpack_require__(110);
 	
 	var _register2 = _interopRequireDefault(_register);
 	
@@ -2311,194 +2311,6 @@
 /* 99 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _getPrototypeOf = __webpack_require__(2);
-	
-	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-	
-	var _classCallCheck2 = __webpack_require__(28);
-	
-	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-	
-	var _createClass2 = __webpack_require__(29);
-	
-	var _createClass3 = _interopRequireDefault(_createClass2);
-	
-	var _possibleConstructorReturn2 = __webpack_require__(33);
-	
-	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-	
-	var _inherits2 = __webpack_require__(80);
-	
-	var _inherits3 = _interopRequireDefault(_inherits2);
-	
-	var _view = __webpack_require__(88);
-	
-	var _view2 = _interopRequireDefault(_view);
-	
-	var _form = __webpack_require__(92);
-	
-	var _form2 = _interopRequireDefault(_form);
-	
-	var _jsonRequest = __webpack_require__(95);
-	
-	var _jsonRequest2 = _interopRequireDefault(_jsonRequest);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var RegisterView = function (_View) {
-	  (0, _inherits3.default)(RegisterView, _View);
-	
-	  function RegisterView() {
-	    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-	    (0, _classCallCheck3.default)(this, RegisterView);
-	
-	    var _this = (0, _possibleConstructorReturn3.default)(this, (RegisterView.__proto__ || (0, _getPrototypeOf2.default)(RegisterView)).call(this, options));
-	
-	    _this._init();
-	    _this.hide();
-	    return _this;
-	  }
-	
-	  (0, _createClass3.default)(RegisterView, [{
-	    key: "_init",
-	    value: function _init() {
-	      var _this2 = this;
-	
-	      var container = document.querySelector('.container');
-	      this._form = new _form2.default({
-	        data: {
-	          title: 'Rainbow square',
-	          fields: [{
-	            name: 'email',
-	            type: 'email',
-	            placeholder: 'Email'
-	          }, {
-	            name: 'login',
-	            type: 'text',
-	            placeholder: 'Username'
-	          }, {
-	            name: 'password',
-	            type: 'password',
-	            placeholder: 'Password'
-	          }],
-	          template: 'form/form.tmpl',
-	          controls: [{
-	            text: 'Sign up',
-	            type: 'submit',
-	            class: 'register__submit btn-success btn-md'
-	
-	          }]
-	        }
-	      });
-	      this._el = this._form._el;
-	      container.appendChild(this._el);
-	      this._form.on('submit', function (event) {
-	        event.preventDefault();
-	        var formData = _this2._form.getFormData();
-	        var result = (0, _jsonRequest2.default)('https://rainbow-square-backend.herokuapp.com/api/user/', formData);
-	        if (result.status === 400) {
-	          window.alert("Такой пользователь уже существует(");
-	        } else {
-	          window.alert("Вы зарегистрированы!");
-	          var Request = JSON.parse(result.responseText);
-	          _this2._router.go('/menu');
-	        }
-	      });
-	    }
-	  }, {
-	    key: "resume",
-	    value: function resume() {
-	      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-	
-	      this.show();
-	    }
-	  }]);
-	  return RegisterView;
-	}(_view2.default);
-	
-	exports.default = RegisterView;
-
-/***/ },
-/* 100 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _getPrototypeOf = __webpack_require__(2);
-	
-	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-	
-	var _classCallCheck2 = __webpack_require__(28);
-	
-	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-	
-	var _createClass2 = __webpack_require__(29);
-	
-	var _createClass3 = _interopRequireDefault(_createClass2);
-	
-	var _possibleConstructorReturn2 = __webpack_require__(33);
-	
-	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-	
-	var _inherits2 = __webpack_require__(80);
-	
-	var _inherits3 = _interopRequireDefault(_inherits2);
-	
-	var _view = __webpack_require__(88);
-	
-	var _view2 = _interopRequireDefault(_view);
-	
-	var _block = __webpack_require__(93);
-	
-	var _block2 = _interopRequireDefault(_block);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var SinglePlayerView = function (_View) {
-	  (0, _inherits3.default)(SinglePlayerView, _View);
-	
-	  function SinglePlayerView() {
-	    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-	    (0, _classCallCheck3.default)(this, SinglePlayerView);
-	
-	    var _this = (0, _possibleConstructorReturn3.default)(this, (SinglePlayerView.__proto__ || (0, _getPrototypeOf2.default)(SinglePlayerView)).call(this, options));
-	
-	    _this._el = new _block2.default('div');
-	    _this.hide();
-	    return _this;
-	  }
-	
-	  (0, _createClass3.default)(SinglePlayerView, [{
-	    key: "resume",
-	    value: function resume() {
-	      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-	
-	      if (!options.username && !options.email) {
-	        return this.router.go('/login');
-	      }
-	
-	      this.show();
-	    }
-	  }]);
-	  return SinglePlayerView;
-	}(_view2.default);
-	
-	exports.default = SinglePlayerView;
-
-/***/ },
-/* 101 */
-/***/ function(module, exports, __webpack_require__) {
-
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
@@ -2513,7 +2325,7 @@
 	
 	var _createClass3 = _interopRequireDefault(_createClass2);
 	
-	var _route = __webpack_require__(102);
+	var _route = __webpack_require__(100);
 	
 	var _route2 = _interopRequireDefault(_route);
 	
@@ -2660,7 +2472,7 @@
 	exports.default = Router;
 
 /***/ },
-/* 102 */
+/* 100 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2669,7 +2481,7 @@
 	  value: true
 	});
 	
-	var _assign = __webpack_require__(103);
+	var _assign = __webpack_require__(101);
 	
 	var _assign2 = _interopRequireDefault(_assign);
 	
@@ -2681,7 +2493,7 @@
 	
 	var _createClass3 = _interopRequireDefault(_createClass2);
 	
-	var _pathToRegex = __webpack_require__(107);
+	var _pathToRegex = __webpack_require__(105);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -2774,29 +2586,29 @@
 	exports.default = Route;
 
 /***/ },
-/* 103 */
+/* 101 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(104), __esModule: true };
+	module.exports = { "default": __webpack_require__(102), __esModule: true };
 
 /***/ },
-/* 104 */
+/* 102 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(105);
+	__webpack_require__(103);
 	module.exports = __webpack_require__(15).Object.assign;
 
 /***/ },
-/* 105 */
+/* 103 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// 19.1.3.1 Object.assign(target, source)
 	var $export = __webpack_require__(14);
 	
-	$export($export.S + $export.F, 'Object', {assign: __webpack_require__(106)});
+	$export($export.S + $export.F, 'Object', {assign: __webpack_require__(104)});
 
 /***/ },
-/* 106 */
+/* 104 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2834,7 +2646,7 @@
 	} : $assign;
 
 /***/ },
-/* 107 */
+/* 105 */
 /***/ function(module, exports) {
 
 	
@@ -2885,7 +2697,7 @@
 	exports.pathToRegex = pathToRegex;
 
 /***/ },
-/* 108 */
+/* 106 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2918,7 +2730,7 @@
 	
 	var _view2 = _interopRequireDefault(_view);
 	
-	var _menu = __webpack_require__(109);
+	var _menu = __webpack_require__(107);
 	
 	var _menu2 = _interopRequireDefault(_menu);
 	
@@ -2926,7 +2738,7 @@
 	
 	var _button2 = _interopRequireDefault(_button);
 	
-	var _link = __webpack_require__(110);
+	var _link = __webpack_require__(108);
 	
 	var _link2 = _interopRequireDefault(_link);
 	
@@ -3025,7 +2837,7 @@
 	exports.default = MainMenuView;
 
 /***/ },
-/* 109 */
+/* 107 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -3105,7 +2917,7 @@
 	exports.default = Menu;
 
 /***/ },
-/* 110 */
+/* 108 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3156,6 +2968,194 @@
 	exports.default = Link;
 
 /***/ },
+/* 109 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _getPrototypeOf = __webpack_require__(2);
+	
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+	
+	var _classCallCheck2 = __webpack_require__(28);
+	
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+	
+	var _createClass2 = __webpack_require__(29);
+	
+	var _createClass3 = _interopRequireDefault(_createClass2);
+	
+	var _possibleConstructorReturn2 = __webpack_require__(33);
+	
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+	
+	var _inherits2 = __webpack_require__(80);
+	
+	var _inherits3 = _interopRequireDefault(_inherits2);
+	
+	var _view = __webpack_require__(88);
+	
+	var _view2 = _interopRequireDefault(_view);
+	
+	var _block = __webpack_require__(93);
+	
+	var _block2 = _interopRequireDefault(_block);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var SinglePlayerView = function (_View) {
+	  (0, _inherits3.default)(SinglePlayerView, _View);
+	
+	  function SinglePlayerView() {
+	    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	    (0, _classCallCheck3.default)(this, SinglePlayerView);
+	
+	    var _this = (0, _possibleConstructorReturn3.default)(this, (SinglePlayerView.__proto__ || (0, _getPrototypeOf2.default)(SinglePlayerView)).call(this, options));
+	
+	    _this._el = new _block2.default('div');
+	    _this.hide();
+	    return _this;
+	  }
+	
+	  (0, _createClass3.default)(SinglePlayerView, [{
+	    key: "resume",
+	    value: function resume() {
+	      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	
+	      if (!options.username && !options.email) {
+	        return this.router.go('/login');
+	      }
+	
+	      this.show();
+	    }
+	  }]);
+	  return SinglePlayerView;
+	}(_view2.default);
+	
+	exports.default = SinglePlayerView;
+
+/***/ },
+/* 110 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _getPrototypeOf = __webpack_require__(2);
+	
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+	
+	var _classCallCheck2 = __webpack_require__(28);
+	
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+	
+	var _createClass2 = __webpack_require__(29);
+	
+	var _createClass3 = _interopRequireDefault(_createClass2);
+	
+	var _possibleConstructorReturn2 = __webpack_require__(33);
+	
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+	
+	var _inherits2 = __webpack_require__(80);
+	
+	var _inherits3 = _interopRequireDefault(_inherits2);
+	
+	var _view = __webpack_require__(88);
+	
+	var _view2 = _interopRequireDefault(_view);
+	
+	var _form = __webpack_require__(92);
+	
+	var _form2 = _interopRequireDefault(_form);
+	
+	var _jsonRequest = __webpack_require__(95);
+	
+	var _jsonRequest2 = _interopRequireDefault(_jsonRequest);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var RegisterView = function (_View) {
+	  (0, _inherits3.default)(RegisterView, _View);
+	
+	  function RegisterView() {
+	    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	    (0, _classCallCheck3.default)(this, RegisterView);
+	
+	    var _this = (0, _possibleConstructorReturn3.default)(this, (RegisterView.__proto__ || (0, _getPrototypeOf2.default)(RegisterView)).call(this, options));
+	
+	    _this._init();
+	    _this.hide();
+	    return _this;
+	  }
+	
+	  (0, _createClass3.default)(RegisterView, [{
+	    key: "_init",
+	    value: function _init() {
+	      var _this2 = this;
+	
+	      var container = document.querySelector('.container');
+	      this._form = new _form2.default({
+	        data: {
+	          title: 'Rainbow square',
+	          fields: [{
+	            name: 'email',
+	            type: 'email',
+	            placeholder: 'Email'
+	          }, {
+	            name: 'login',
+	            type: 'text',
+	            placeholder: 'Username'
+	          }, {
+	            name: 'password',
+	            type: 'password',
+	            placeholder: 'Password'
+	          }],
+	          template: 'form/form.tmpl',
+	          controls: [{
+	            text: 'Sign up',
+	            type: 'submit',
+	            class: 'register__submit btn-success btn-md'
+	
+	          }]
+	        }
+	      });
+	      this._el = this._form._el;
+	      container.appendChild(this._el);
+	      this._form.on('submit', function (event) {
+	        event.preventDefault();
+	        var formData = _this2._form.getFormData();
+	        var result = (0, _jsonRequest2.default)('https://rainbow-square-backend.herokuapp.com/api/user/', formData);
+	        if (result.status === 400) {
+	          window.alert("Такой пользователь уже существует(");
+	        } else {
+	          window.alert("Вы зарегистрированы!");
+	          var Request = JSON.parse(result.responseText);
+	          _this2._router.go('/menu');
+	        }
+	      });
+	    }
+	  }, {
+	    key: "resume",
+	    value: function resume() {
+	      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	
+	      this.show();
+	    }
+	  }]);
+	  return RegisterView;
+	}(_view2.default);
+	
+	exports.default = RegisterView;
+
+/***/ },
 /* 111 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -3189,7 +3189,7 @@
 	
 	var _view2 = _interopRequireDefault(_view);
 	
-	var _menu = __webpack_require__(109);
+	var _menu = __webpack_require__(107);
 	
 	var _menu2 = _interopRequireDefault(_menu);
 	
@@ -3197,7 +3197,7 @@
 	
 	var _button2 = _interopRequireDefault(_button);
 	
-	var _link = __webpack_require__(110);
+	var _link = __webpack_require__(108);
 	
 	var _link2 = _interopRequireDefault(_link);
 	
