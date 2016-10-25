@@ -10,7 +10,7 @@ export  default  class RegisterView extends View {
   }
 
   _init() {
-    let container = document.querySelector('.container');
+    let container = document.querySelector('.content_container');
     this._form = new Form({
       data: {
         title: 'Registration',

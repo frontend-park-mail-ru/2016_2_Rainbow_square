@@ -12,7 +12,7 @@ export default class MainMenuView extends View {
   }
 
   _init() {
-    let container = document.querySelector('.container');
+    let container = document.querySelector('.content_container');
     let menu = new Block('div');
     let singlePlayer = new Button({ text: 'Single player' });
     let multiPlayer = new Button({ text: 'Multiplayer' });
