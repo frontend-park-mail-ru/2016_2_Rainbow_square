@@ -10,7 +10,7 @@ export  default  class LoginView extends View {
   }
 
   _init() {
-    let container = document.querySelector('.container');
+    let container = document.querySelector('.content_container');
     this._form = new Form({
       data: {
         fields: [
@@ -62,6 +62,7 @@ export  default  class LoginView extends View {
       }
     });
     this._el = this._form._el;
+    console.log(this._form._el);
     container.appendChild(this._el);
     this._form.on('submit', event => {
       event.preventDefault();

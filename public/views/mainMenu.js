@@ -13,7 +13,7 @@ export default class MainMenuView extends View {
   }
 
   _init() {
-    let container = document.querySelector('.container');
+    let container = document.querySelector('.content_container');
     this._menu = new Menu({
       data: {
         fields: [
