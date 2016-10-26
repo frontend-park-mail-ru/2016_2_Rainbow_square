@@ -4,3 +4,5 @@ public/api
 *.bak
 .tern-project
 public/build
+*.tmpl.js
+public/coverage

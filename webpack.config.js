@@ -6,6 +6,7 @@ module.exports = {
     'login': ["./public/views/login.js"],
     'register': ["./public/views/register.js"],
     'singlePlayer': ["./public/views/singlePlayer.js"],
+    'route.spec': ["./public/tests/route.spec.js"],
   },
   output: {
     path: "./public/build",
