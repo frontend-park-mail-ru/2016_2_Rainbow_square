@@ -3,4 +3,4 @@ public/api
 *.idea/*
 *.bak
 .tern-project
-
+public/build

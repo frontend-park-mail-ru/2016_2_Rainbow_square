@@ -7,7 +7,9 @@
     "heroku-postbuild": "npm run fest; ./node_modules/.bin/webpack --config=webpack.heroku.config.js",
     "test": "node test.js",
     "fest": "./node_modules/.bin/fest-build --dir=public/components/",
-    "webpack": "./node_modules/.bin/webpack"
+    "webpack": "./node_modules/.bin/webpack",
+    "karma:start": "karma start",
+    "karma:run": "karma run"
   },
   "repository": {
     "type": "git",
@@ -33,8 +35,11 @@
     "technolibs": "1.1.0",
     "bootstrap-social":"^5.0.0",
     "bootstrap":"^3.3.7",
-    "karma": "^1.3.0",
-    "jasmine":"^2.5.2"
+    "jasmine": "^2.5.2",
+    "karma": "1.3.0",
+    "karma-chrome-launcher": "2.0.0",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.0.2"
   },
   "devDependencies": {
     "babel-core": "^6.17.0",
