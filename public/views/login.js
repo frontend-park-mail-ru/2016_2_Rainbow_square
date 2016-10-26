@@ -1,6 +1,7 @@
 import View from "../modules/view"
 import  Form from  "../components/form/form"
-import  jsonRequest from "../modules/jsonRequest"
+import  {jsonRequest} from "../modules/jsonRequest"
+import {getRequest} from "../modules/jsonRequest"
 
 export  default  class LoginView extends View {
   constructor(options = {}) {
@@ -62,13 +63,23 @@ export  default  class LoginView extends View {
       }
     });
     this._el = this._form._el;
-    console.log(this._form._el);
     container.appendChild(this._el);
+    //сессия
+    //ПОЧЕМУ-то не работает :(
+    const session =  getRequest('https://rainbow-square-backend.herokuapp.com/api/session/');
+    console.log("TELO");
+    console.log(session);
+    console.log(session.status);
+    if (session.status === 200) {
+      this.router.go('/play');
+    }
     this._form.on('submit', event => {
       event.preventDefault();
       const formData = this._form.getFormData();
       const result = jsonRequest('https://rainbow-square-backend.herokuapp.com/api/session/', formData);
-      if (result.status === 400) {
+      console.log(result);
+      console.log(result.status);
+      if (result.status != 200) {
         window.alert("Логин или пароль не верны");
       } else {
         const obj = JSON.parse(result.responseText);

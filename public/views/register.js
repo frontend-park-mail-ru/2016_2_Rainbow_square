@@ -1,6 +1,6 @@
 import View from "../modules/view"
 import  Form from  "../components/form/form.js"
-import jsonRequest from "../modules/jsonRequest"
+import {jsonRequest} from "../modules/jsonRequest"
 
 export  default  class RegisterView extends View {
   constructor(options = {}) {
