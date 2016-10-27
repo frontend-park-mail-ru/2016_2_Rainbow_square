@@ -27,3 +27,4 @@ app.get('/register', pseudoUrlHandler);
 app.get('/singlePlayer', pseudoUrlHandler);
 app.get('/play', pseudoUrlHandler);
 app.get('/playchoose', pseudoUrlHandler);
+app.get('/scores', pseudoUrlHandler);

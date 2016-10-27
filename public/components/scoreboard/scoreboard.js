@@ -1,10 +1,10 @@
 import Block from "../block/block"
 
-export  default  class Menu extends Block {
+export  default  class Scoreboard extends Block {
   constructor(options = {data: {}}) {
     super('div');
     this.data = options.data;
-    this.template = window.fest["menu/menu.tmpl"];
+    this.template = window.fest["scoreboard/scoreboard.tmpl"];
 
     this.render();
   }

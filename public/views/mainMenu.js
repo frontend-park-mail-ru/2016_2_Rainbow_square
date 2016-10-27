@@ -36,8 +36,6 @@ export default class MainMenuView extends View {
 
     let play = document.querySelector('.play');
     this._play = new Link({class: "ghost-button-rounded-corners", attrs: {text: "play"}});
-    // let multiPlayer = new Block_query('Multiplayer');
-    // let scoreboard = new Block_query('Scoreboard');
     play.appendChild(this._play._el);
 
     this._play.on('click', event => {
@@ -49,8 +47,7 @@ export default class MainMenuView extends View {
       class: "ghost-button-rounded-corners",
       attrs: {text: "leaderbord"}
     });
-    // let multiPlayer = new Block_query('Multiplayer');
-    // let scoreboard = new Block_query('Scoreboard');
+
     play.appendChild(this._leaderbord._el);
 
     this._leaderbord.on('click', event => {
@@ -62,21 +59,8 @@ export default class MainMenuView extends View {
     this._exit .on('click', event => {
       this.router.go('/');
     });
-    // let multiPlayer = new Block_query('Multiplayer');
-    // let scoreboard = new Block_query('Scoreboard');
     exit.appendChild(this._exit._el);
 
-
-    // multiPlayer.on('click', event => { this.router.go('/multiPlayer'); });
-    // scoreboard.on('click', event => { this.router.go('/scores'); });
-    // singlePlayer.classAdd('mainMenu_buttom');
-    // multiPlayer.classAdd('mainMenu_buttom');
-    // scoreboard.classAdd('mainMenu_buttom');
-    // menu.append(singlePlayer);
-    // menu.append(multiPlayer);
-    // menu.append(scoreboard);
-
-    // this._el = menu._el;
   }
 
   resume(options = {}) {

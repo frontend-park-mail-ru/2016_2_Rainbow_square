@@ -1,0 +1,21 @@
+.menu {
+    list-style: none;
+    padding: 0;
+    border: 1px solid rgba(0,0,0, .2);
+}
+.menu li {
+    overflow: hidden;
+    padding: 6px 10px;
+    font-size: 20px;
+}
+
+.menu span {
+    float: left;
+    width: 75%;
+    color: #7C7D7F;
+}
+.menu em {
+    float: right;
+    color: #9c836e;
+    font-weight: bold;
+}
