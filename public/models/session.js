@@ -1,6 +1,6 @@
 'use strict';
 
-import Model from "../modules/model.js";
+import Model from "./model.js";
 
 export default class Session extends Model {
 
