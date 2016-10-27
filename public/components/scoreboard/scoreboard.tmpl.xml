@@ -11,7 +11,6 @@
         <ol class="menu">
             <fest:for iterate="data.fields" index="i" value="field">
                 <div class="grid__row grid__padding7 flex_center " flex="1">
-
                     <li>
                         <span>
                             <fest:value>field.name</fest:value>

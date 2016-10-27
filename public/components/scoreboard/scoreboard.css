@@ -1,5 +1,5 @@
 .menu {
-    list-style: none;
+    list-style-type: decimal;
     padding: 0;
     border: 1px solid rgba(0,0,0, .2);
 
@@ -12,27 +12,15 @@
 
 .menu span {
     float: left;
-    width: 75%;
+    width: 50%;
     color: #7C7D7F;
     font: 25pt  Squareo;
 }
-.menu li:first-child {
-    font-weight: bold;
-    padding: 15px 0 10px 15px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid rgba(0,0,0, .2);
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    color: #679bb7;
-    font-size: 24px;
-    box-shadow: 0 10px 20px -5px rgba(0,0,0, .2);
-}
-.menu li:first-child:before {
-    content: "\2749";
-    margin-right: 10px;
-}
+
 .menu em {
     float: right;
-    color: #9c836e;
+    color: red;
+    width: 14%;
     font-weight: bold;
+    font: 25pt  Squareo;
 }
