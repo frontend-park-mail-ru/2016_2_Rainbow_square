@@ -8,18 +8,18 @@
             <br></br>
             <br></br>
         </div>
-        <fest:for iterate="data.fields" index="i" value="field">
-            <div class="grid__row grid__padding7 flex_center " flex="1">
-                <ul class="menu">
+        <ol class="menu">
+            <fest:for iterate="data.fields" index="i" value="field">
+                <div class="grid__row grid__padding7 flex_center " flex="1">
+
                     <li>
-                        <span> <fest:value>field.class</fest:value></span>
-                        <em>320</em>
+                        <span>
+                            <fest:value>field.name</fest:value>
+                        </span>
+                        <em><fest:value>field.score</fest:value></em>
                     </li>
-                </ul>
-
-
-            </div>
-
-        </fest:for>
+                </div>
+            </fest:for>
+        </ol>
     </div>
 </fest:template>

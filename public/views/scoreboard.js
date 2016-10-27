@@ -15,10 +15,20 @@ export  default  class ScoreBoardView extends View {
       data: {
         fields: [
           {
-            class: 'Singleplayer'
+            name: 'Player1',
+            score: '125'
           },
           {
-            class: 'Multiplayer'
+            name: 'Player2',
+            score: '124'
+          },
+          {
+            name: 'Player3',
+            score: '123'
+          },
+          {
+            name: 'Player4',
+            score: '122'
           },
         ],
         title: 'RAINBOW SQUARE',
