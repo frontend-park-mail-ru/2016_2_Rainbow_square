@@ -62,6 +62,7 @@ export  default  class LoginView extends View {
       }
     });
     this._el = this._form._el;
+    container.innerHTML = "";
     container.appendChild(this._el);
 
 

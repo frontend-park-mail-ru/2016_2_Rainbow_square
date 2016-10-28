@@ -32,6 +32,7 @@ export default class MainMenuView extends View {
       }
     });
     this._el = this._menu._el;
+    container.innerHTML = "";
     container.appendChild(this._menu._el);
 
     let play = document.querySelector('.play');

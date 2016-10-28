@@ -35,6 +35,7 @@ export  default  class ScoreBoardView extends View {
       }
     });
     this._el = this._menu._el;
+    container.innerHTML = "";
     container.appendChild(this._menu._el);
 
 

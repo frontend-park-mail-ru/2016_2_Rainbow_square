@@ -44,6 +44,7 @@ export  default  class RegisterView extends View {
       }
     });
     this._el = this._form._el;
+    container.innerHTML = "";
     container.appendChild(this._el);
     this._form.on('submit', event => {
       event.preventDefault();
