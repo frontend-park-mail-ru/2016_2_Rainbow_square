@@ -3,11 +3,12 @@
 export default class Model {
 
   constructor(attributes) {
+    if (attributes === undefined) attributes = {}
     this.attributes = Object.assign({}, this.defaults, this._clean(attributes));
   }
 
   get baseUrl() {
-    return 'https://rainbow-square-backend.herokuapp.com';
+    return 'https://rainbow-square-backend.herokuapp.com/api';
   }
 
   get defaults() {

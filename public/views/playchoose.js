@@ -56,7 +56,12 @@ export  default  class PlayChooseView extends View {
   }
 
   resume(options = {}) {
-    this.show();
+    let session = window.session;
+    if (!session || !session.isAuthenticated) {
+      this.router.go('/login');
+    }
+    else {
+      this.show();
+    }
   }
 }
-

@@ -57,13 +57,21 @@ export default class MainMenuView extends View {
     let exit = document.querySelector('.exit');
     this._exit = new Link({class: "ghost-button-rounded-corners", attrs: {text: "exit"}});
     this._exit .on('click', event => {
-      this.router.go('/');
+      window.session.remove().then(() => {
+        this.router.go('/');
+      });
     });
     exit.appendChild(this._exit._el);
 
   }
 
   resume(options = {}) {
-    this.show();
+    let session = window.session;
+    if (!session || !session.isAuthenticated) {
+      this.router.go('/login');
+    }
+    else {
+      this.show();
+    }
   }
 }

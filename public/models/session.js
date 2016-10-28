@@ -8,20 +8,27 @@ export default class Session extends Model {
 		super(attributes);
 	}
 
-	get url() {
-		return '${this.baseUrl}/session';
+	url() {
+		return `${this.baseUrl}/session`;
 	}
 
-  save(login, password) {
-    return this.send('POST', { 'username': login, 'password': password })
-      .then(attrs => {
-        this.attributes = { 'id': this.attributes.id };
-      });
+  save() {
+    let f = function (attrs) {
+      this._auth = true;
+      localStorage.userinfo = JSON.stringify(this.attributes);
+    };
+    return super.save()
+      .then(f.bind(this));
   }
 
-  fetch() {
-    this.attributes.id = this.attributes.email;
-    super.fetch();
+  remove() {
+    this._auth = false;
+    localStorage.removeItem('userinfo');
+    return super.remove();
+  }
+
+  get isAuthenticated() {
+    return !!this._auth;
   }
 
 }

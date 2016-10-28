@@ -23,13 +23,12 @@ export  default  class SinglePlayerView extends View {
   }
 
   resume(options = {}) {
-    /*
-    if (!options.username && !options.email) {
-      return this.router.go('/login');
+    let session = window.session;
+    if (!session || !session.isAuthenticated) {
+      this.router.go('/login');
     }
-    */
-
-    console.log('at /sp');
-    this.show();
+    else {
+      this.show();
+    }
   }
 }

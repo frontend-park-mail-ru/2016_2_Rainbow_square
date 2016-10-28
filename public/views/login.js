@@ -2,6 +2,7 @@ import View from "../modules/view"
 import  Form from  "../components/form/form"
 import  {jsonRequest} from "../modules/jsonRequest"
 import {getRequest} from "../modules/jsonRequest"
+import  Session from  "../models/session"
 
 export  default  class LoginView extends View {
   constructor(options = {}) {
@@ -64,28 +65,20 @@ export  default  class LoginView extends View {
     });
     this._el = this._form._el;
     container.appendChild(this._el);
-    //сессия
-    //ПОЧЕМУ-то не работает :(
-    const session =  getRequest('https://rainbow-square-backend.herokuapp.com/api/session/');
-    console.log("TELO");
-    console.log(session);
-    console.log(session.status);
-    if (session.status === 200) {
-      this.router.go('/play');
-    }
+
+
+    window.session = window.session || new Session();
     this._form.on('submit', event => {
       event.preventDefault();
       const formData = this._form.getFormData();
-      const result = jsonRequest('https://rainbow-square-backend.herokuapp.com/api/session/', formData);
-      console.log(result);
-      console.log(result.status);
-      if (result.status != 200) {
-        window.alert("Логин или пароль не верны");
-      } else {
-        const obj = JSON.parse(result.responseText);
-        window.userinfo = obj;
+      let session = (window.session = new Session(formData));
+      session.save().then(attrs => {
+        window.userinfo = formData;
         this.router.go('/play');
-      }
+      },
+      attrs => {
+        window.alert("Логин или пароль не верны");
+      });
     });
 
     this._form.on('reset', event => {
@@ -96,7 +89,12 @@ export  default  class LoginView extends View {
 
   resume(options = {}) {
     console.log('resume at /login');
-    this.show();
+    if (window.session.isAuthenticated) {
+      this.router.go('/play');
+    }
+    else {
+      this.show();
+    }
   }
 
 }
