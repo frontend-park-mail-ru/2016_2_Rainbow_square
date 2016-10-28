@@ -8,8 +8,8 @@ export default class User extends Model {
 		super(attributes);
 	}
 
-	get url() {
-		return '${this.baseUrl}/user/';
+	url() {
+		return `${this.baseUrl}/user/`;
 	}
 
 	get defaults() {
@@ -19,4 +19,9 @@ export default class User extends Model {
       password: 'password'
     }
 	}
+
+  remove() {
+    super.remove().then(attrs => {return attrs})
+  }
+
 }

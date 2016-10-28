@@ -1,6 +1,7 @@
 import View from "../modules/view"
 import  Form from  "../components/form/form.js"
-import {jsonRequest} from "../modules/jsonRequest"
+import  User from  "../models/user"
+import  Session from  "../models/session"
 
 export  default  class RegisterView extends View {
   constructor(options = {}) {
@@ -47,14 +48,28 @@ export  default  class RegisterView extends View {
     this._form.on('submit', event => {
       event.preventDefault();
       const formData = this._form.getFormData();
-      const result = jsonRequest('https://rainbow-square-backend.herokuapp.com/api/user/', formData);
-      if (result.status === 400) {
-        window.alert("Такой пользователь уже существует(");
-      } else {
-        window.alert("Вы зарегистрированы!");
-        const Request = JSON.parse(result.responseText);
+      let user = new User(formData);
+      user.save().then(attrs => {
+        //сразу логиним
+        let session = (window.session = new Session({
+          login: formData['login'],
+          password: formData['password']
+        }));
+        session.save().then(attrs => {
+          window.userinfo = formData;
+          this.router.go('/play');
+        },
+        attrs => {
+          window.alert("Логин или пароль не верны");
+        });
+
+        window.userinfo = formData;
         this.router.go('/play');
-      }
+      },
+      () => {
+        window.alert("Такой пользователь уже существует");
+      });
+
     });
   }
 

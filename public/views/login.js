@@ -1,7 +1,5 @@
 import View from "../modules/view"
 import  Form from  "../components/form/form"
-import  {jsonRequest} from "../modules/jsonRequest"
-import {getRequest} from "../modules/jsonRequest"
 import  Session from  "../models/session"
 
 export  default  class LoginView extends View {

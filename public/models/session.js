@@ -24,7 +24,9 @@ export default class Session extends Model {
   remove() {
     this._auth = false;
     localStorage.removeItem('userinfo');
-    return super.remove();
+    return super.remove().catch(() => {
+      return {}
+    });
   }
 
   get isAuthenticated() {
