@@ -1,0 +1,26 @@
+.menu {
+    list-style-type: decimal;
+    padding: 0;
+    border: 1px solid rgba(0,0,0, .2);
+
+}
+.menu li {
+    overflow: hidden;
+    padding: 6px 10px;
+    font-size: 20px;
+}
+
+.menu span {
+    float: left;
+    width: 50%;
+    color: #7C7D7F;
+    font: 25pt  Squareo;
+}
+
+.menu em {
+    float: right;
+    color: red;
+    width: 14%;
+    font-weight: bold;
+    font: 25pt  Squareo;
+}

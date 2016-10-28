@@ -1,30 +1,14 @@
-(function() {
-  class Button {
-    constructor(options) {
-      this.text = options.text;
-      this.attrs = options.attrs || [];
-      this.el = document.createElement('button');
-    }
+import Block from "../block/block.js";
 
-    setAttrs(attrs) {
-      Object.keys(attrs).forEach(name => {
-        this.el.setAttribute(name, attrs[name]);
-      });
-    }
 
-    render() {
-      console.log(this.attrs);
-      this.el.innerHTML = this.text;
-      // this.el.classList.add('button2');
-      this.setAttrs(this.attrs);
-      return this;
-    }
-
-    toString() {
-      return this.el.outerHTML;
-    }
+export  default class Button extends Block {
+  constructor(options) {
+    super('button', options);
+    //this._el.classList.add('button');
+    this._el.classList.add(this._options.class || '');
+    this._el.innerText = this._options.text || 'Press me';
   }
+}
 
-  // export
-  window.Button = Button;
-})();
+
+
